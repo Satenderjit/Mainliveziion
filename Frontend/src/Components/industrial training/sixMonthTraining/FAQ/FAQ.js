@@ -6,12 +6,26 @@ import styles from "./FAQ.module.css";
 // Storing the answer with bullet points as an object for easy rendering
 const complexAnswer = {
   intro:
-    "We believe in transparency, collaboration, and tailored solutions. DianApps is the right fit for you if you’re looking for:",
+    "We believe in transparency, collaboration, and tailored solutions. Ziion Technology is the right fit for you if you’re looking for:",
   points: [
-    "Expertise in emerging technologies like AI, blockchain, and cloud computing.",
-    "A customer-centric approach that focuses on solving real business challenges.",
-    "Scalable and cost-effective solutions that align with your goals.",
-    "A track record of 350+ successful projects and a growing global presence.",
+    "Training is conducted through a blend of live interactive sessions",
+    "Hands-on projects to enhance practical skills",
+    "Access to recorded materials for easy learning",
+    "Dedicated support to ensure you're well-prepared for the job market",
+    "A comprehensive curriculum designed to cover essential skills and tools",
+    "A 100% placement guarantee to help you land your dream job",
+    "A 6-month training program to help you build a successful career",
+    "Hands-on projects, and recorded materials accessible anytime for flexible learning.",
+  ],
+  outro:
+    "We encourage you to schedule a free consultation to discuss your project and see how we can help you scale your business.",
+};
+const complexanswer1 = {
+  intro:
+    "We provide continuous support via mentors, doubt-clearing sessions, and a dedicated online community to help you throughout the course.",
+  points: [
+    "Get in Touch With Us",
+    " Fill out the form below and our team will get back to you as soon as possible. Whether you're interested in our courses, partnerships, or just want to say hello — we’d love to hear from you!",
   ],
   outro:
     "We encourage you to schedule a free consultation to discuss your project and see how we can help you scale your business.",
@@ -19,48 +33,45 @@ const complexAnswer = {
 
 const leftColumnFaqs = [
   {
-    question: "Does DianApps Offer an End-to-End AI Development Service?",
+    question: "What is the duration of the training program?",
     answer:
-      "Yes! DianApps provides comprehensive AI development services, from conceptualization to deployment. Our team specializes in AI strategy, data modeling, machine learning integration, NLP (Natural Language Processing), and AI-driven automation to create intelligent, scalable, and future-ready solutions for businesses across industries.",
+      "The training program lasts for six Months, with comprehensive sessions designed to cover essential skills and tools in your chosen field.",
   },
   {
-    question: "What Mobile App Development Services Do You Offer?",
+    question: "Which courses are offered in this program?",
     answer:
-      "DianApps specializes in custom mobile app development across iOS, Android, and cross-platform frameworks like Flutter and React Native. Our services include MVP development, UI/UX design, AI-powered automation, backend development, and third-party integrations, delivering high-performance, scalable, and user-friendly applications.",
+      "We offer specialized training in Full Stack Development, Data Science, Artificial Intelligence & Machine Learning (AI/ML), and Digital Marketing.",
   },
   {
-    question: "What Industries Benefit from DianApps’ AI Solutions?",
+    question: "Is the training suitable for beginners?",
     answer:
-      "Our AI-driven innovations cater to diverse industries, including healthcare, finance, e-commerce, logistics, and education. Whether it’s AI-powered fraud detection in fintech, personalized shopping experiences in retail, or smart automation in supply chain management, we tailor AI solutions to maximize efficiency and business growth.",
+      "Yes! Our courses are structured to accommodate beginners, with foundational concepts explained clearly alongside advanced topics for those with prior experience.",
   },
   {
-    question: "How do I know if DianApps is the right partner for me?",
+    question: "What is the mode of training?",
     answer: complexAnswer, // Using the complex answer object here
   },
 ];
 
 const rightColumnFaqs = [
   {
-    question: "Do You Provide Post-Launch Software Maintenance?",
+    question: "Will I get hands-on experience?",
     answer:
-      "Absolutely! We offer dedicated post-launch maintenance and support services, including performance optimization, security updates, feature enhancements, and bug fixes, ensuring your software remains up-to-date and fully functional.",
+      "Absolutely! Each course includes practical assignments, real-world projects, and case studies toensure you gain valuable hands-on experience.",
   },
   {
-    question: "How Does DianApps Integrate AI into Digital Solutions?",
+    question: "Who are the trainers?",
     answer:
-      "Our AI integration process is tailored to enhance business efficiency, user experience, and automation. We leverage machine learning models, predictive analytics, chatbots, recommendation engines, and generative AI to make applications smarter. Whether it's an AI-powered chatbot, data-driven decision-making, or process automation, we seamlessly embed AI into your mobile apps, websites, and enterprise software to drive innovation.",
+      "Our trainers are industry experts with years of experience in their respective fields, committed toproviding personalized guidance and mentorship.",
   },
   {
-    question:
-      "How can I build a cost-effective product with a quick turnaround for market fit?",
+    question: "Is there any certification upon completion?",
     answer:
-      "At DianApps, we focus on lean development methodologies to help businesses quickly validate their ideas without overspending. Our MVP (Minimum Viable Product) approach ensures that we build only the essential features first, allowing you to test market fit, gather user feedback, and scale efficiently. With agile execution and optimized cost structures, we help you bring your product to market faster without compromising quality.",
+      " Yes, participants will receive a certificate of completion which can enhance your professional profile and improve job prospects and improve job prospects.",
   },
   {
-    question:
-      "Why should I choose your company for my next app development project?",
-    answer:
-      "At our company, we combine innovation with expertise to deliver custom app development solutions that drive real results. With a team of seasoned developers, UI/UX specialists, and project managers, we ensure end-to-end support, from idea validation to post-launch maintenance. Our track record includes delivering high-performing, scalable apps across industries, all while staying on time and within budget. When you work with us, you're not just hiring a development team, you’re gaining a technology partner committed to your long-term success.",
+    question: "What kind of support is available during the training?",
+    answer: complexanswer1,
   },
 ];
 
