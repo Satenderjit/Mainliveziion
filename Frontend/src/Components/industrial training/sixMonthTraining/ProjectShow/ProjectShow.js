@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ProjectShow.module.css";
+import Getdemo from "../../../form/Getdemo"; // Import the Getdemo component
 
 // Import your local images
 import financialImage from "../../../../assets/ProjectImages/Financial.jpg";
@@ -112,13 +113,13 @@ const projectsData = [
       "Google Analytics,Google Tag Manager, Google Data Studio (Looker Studio),Google Keyword Planner",
     coreFeature:
       "Campaign creation, keyword targeting, audience targeting, bid management, ad scheduling, and A/B testing.",
-    buttonText: "View Source",
+    buttonText: "Live Demo",
     imageUrl: portfolioImage,
   },
 ];
 
 // --- Simple Card Component without intersection observer ---
-const AnimatedProjectCard = ({ project, index }) => {
+const AnimatedProjectCard = ({ project, index, openDemoForm }) => {
   return (
     <div className={`${styles.projectCard} ${styles.isVisible}`}>
       <div className={styles.infoSection}>
@@ -135,7 +136,7 @@ const AnimatedProjectCard = ({ project, index }) => {
           <span className={styles.metricValue}>{project.coreFeature}</span>
           <span className={styles.metricLabel}>Core Feature</span>
         </div>
-        <button className={styles.viewCaseStudyButton}>
+        <button className={styles.viewCaseStudyButton} onClick={openDemoForm}>
           {project.buttonText}
         </button>
       </div>
@@ -154,6 +155,16 @@ const AnimatedProjectCard = ({ project, index }) => {
 
 // --- Main Component ---
 const ProjectShow = () => {
+  const [showDemo, setShowDemo] = useState(false);
+
+  const openDemoForm = () => {
+    setShowDemo(true);
+  };
+
+  const closeDemo = () => {
+    setShowDemo(false);
+  };
+
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.projectShowContainer}>
@@ -179,10 +190,12 @@ const ProjectShow = () => {
 
         <main className={styles.mainContent}>
           {projectsData.map((project, index) => (
-            <AnimatedProjectCard key={index} project={project} index={index} />
+            <AnimatedProjectCard key={index} project={project} index={index} openDemoForm={openDemoForm} />
           ))}
         </main>
       </div>
+      {/* Demo Form Modal */}
+      {showDemo && <Getdemo closeForm={closeDemo} />}
     </div>
   );
 };

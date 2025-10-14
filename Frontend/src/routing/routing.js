@@ -115,4 +115,5 @@ export const routes = [
   { path: "/search", element: <StudentSearch /> },
 
   { path: "/courses", element: <CoursesCard /> },
+   { path: "/", element: <CoursesCard /> },
 ];

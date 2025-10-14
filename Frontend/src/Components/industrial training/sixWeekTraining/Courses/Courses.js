@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Courses.module.css";
 
 // SVG for the default icon next to domain names
@@ -119,7 +120,7 @@ const Courses = () => {
             transforms knowledge into real-world achievements, building
             confidence and industry-ready skills.
           </p>
-          <button className={styles.exploreButton}>Explore All Courses</button>
+          <Link to="/allcourses" className={styles.exploreButton}>Explore All Courses</Link>
         </div>
 
         <div key={currentImageUrl} className={styles.imageCard}>
