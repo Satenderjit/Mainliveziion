@@ -5,7 +5,6 @@ export const steps = [
   { id: 4, text: "Begin your six-week training!" },
 ];
 
-
 // faq //
 export const faqs = [
   {
@@ -23,19 +22,14 @@ export const faqs = [
   {
     title: "Our Philosophy",
     image: "https://via.placeholder.com/80",
-    content:
-      "Innovation, Integrity, and Customer Success are at our core.",
+    content: "Innovation, Integrity, and Customer Success are at our core.",
   },
   {
     title: "Our Strategy",
     image: "https://via.placeholder.com/80",
-    content:
-      "We combine research, creativity, and technology for growth.",
+    content: "We combine research, creativity, and technology for growth.",
   },
 ];
-
-
-
 
 // src/data/servicesData.js
 
@@ -76,7 +70,7 @@ export const servicesData = [
     icon: "🤖",
     image: "https://via.placeholder.com/400x250",
   },
-   {
+  {
     title: "Custom Software Development",
     desc: "We specialize delivering bespoke software application perfectly operational.",
     icon: "💻",
@@ -89,11 +83,6 @@ export const servicesData = [
     image: "https://via.placeholder.com/400x250",
   },
 ];
-
-
-
-
-
 // why join us //
 export const courses = [
   "CSE (Computer Science Engineering)",
@@ -103,5 +92,5 @@ export const courses = [
   "B.Sc(Computer Section)",
   "M.Sc (Information Technology)",
   "Diploma in Computer Engineering",
-  "Graduation in any field", 
+  "Graduation in any field",
 ];
