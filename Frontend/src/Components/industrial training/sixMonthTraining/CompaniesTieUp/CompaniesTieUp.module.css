@@ -1,0 +1,240 @@
+/* --- Keyframe Animation for the Scroll --- */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* This moves the track to the left by exactly half its width, creating a perfect loop */
+    transform: translateX(-50%);
+  }
+}
+
+.tieUpContainer {
+  border-bottom: 1px solid #ccc;
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #212529;
+  line-height: 1.2;
+}
+
+/* --- Marquee Styles --- */
+
+.marqueeWrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.marqueeTrack {
+  display: flex;
+  width: fit-content;
+  animation: scroll 50s linear infinite;
+  will-change: transform;
+}
+
+.marqueeWrapper:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+/* --- Individual Logo Styles --- */
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  flex-shrink: 0;
+  height: 120px;
+}
+
+.logo {
+  height: 80px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+/* On hover, the logo becomes colored and fully visible */
+.logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* --- Responsive Styles --- */
+
+@media (max-width: 1024px) {
+  .tieUpContainer {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .logoContainer {
+    padding: 0 35px;
+    height: 110px;
+  }
+
+  .logo {
+    height: 70px;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tieUpContainer {
+    padding: 3rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .logoContainer {
+    padding: 0 30px;
+    height: 100px;
+  }
+
+  .logo {
+    height: 60px;
+    max-width: 160px;
+  }
+
+  .marqueeTrack {
+    animation: scroll 40s linear infinite;
+  }
+}
+
+@media (max-width: 600px) {
+  .tieUpContainer {
+    padding: 2.5rem 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .logoContainer {
+    padding: 0 25px;
+    height: 90px;
+  }
+
+  .logo {
+    height: 50px;
+    max-width: 140px;
+  }
+
+  .marqueeTrack {
+    animation: scroll 35s linear infinite;
+  }
+
+  .marqueeWrapper {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+  }
+}
+
+@media (max-width: 480px) {
+  .tieUpContainer {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .logoContainer {
+    padding: 0 20px;
+    height: 80px;
+  }
+
+  .logo {
+    height: 45px;
+    max-width: 120px;
+  }
+
+  .marqueeTrack {
+    animation: scroll 30s linear infinite;
+  }
+}
+
+@media (max-width: 360px) {
+  .tieUpContainer {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .logoContainer {
+    padding: 0 15px;
+    height: 70px;
+  }
+
+  .logo {
+    height: 40px;
+    max-width: 100px;
+  }
+
+  .marqueeTrack {
+    animation: scroll 25s linear infinite;
+  }
+}
+
+/* Reduced motion support for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+
+  .logo {
+    transition: none;
+  }
+}

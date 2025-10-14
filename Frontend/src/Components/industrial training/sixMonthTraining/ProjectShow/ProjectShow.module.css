@@ -1,0 +1,510 @@
+:root {
+  --brand-orange: #b45309;
+  --dark-blue-btn: #333c8f;
+  --heading-color: #1a202c;
+  --body-color: #4a5568;
+  --border-color: #e2e8f0;
+  --metric-bg: #f7f8fa;
+  --page-bg: #ffffff;
+  --button-gradient: linear-gradient(269.86deg, #ff822b 0%, #2c52be 100%);
+  --button-radius: 14px;
+}
+
+.pageWrapper {
+  background-color: var(--page-bg);
+  background-image: radial-gradient(
+    circle at 1% 1%,
+    rgba(217, 119, 6, 0.1),
+    transparent 25%
+  );
+  border-top: 1px solid #eee;
+  border-radius: 14px;
+  margin-top: 75px;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.projectShowContainer {
+  width: 100%;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 64px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.headerText {
+  flex: 1;
+  min-width: 300px;
+}
+
+.title {
+  font-size: 2.75rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.brandStories {
+  background: var(--button-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.headerCta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 400px;
+  padding-top: 4px;
+  min-width: 300px;
+}
+
+.ctaText {
+  font-size: 0.95rem;
+  color: var(--body-color);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.caseStudiesButton {
+  background-color: var(--dark-blue-btn);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--button-radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(51, 60, 143, 0.2);
+}
+
+.caseStudiesButton:hover {
+  background: var(--button-gradient);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(44, 82, 190, 0.3);
+}
+
+.mainContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.projectCard {
+  background-color: white;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(41, 50, 70, 0.07);
+  display: flex;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.6s ease-out, filter 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.projectCard.isVisible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+
+.projectCard:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.projectCard:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.projectCard:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.infoSection {
+  flex: 0 0 35%;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.infoIcon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.infoIcon svg {
+  color: var(--brand-orange);
+  flex-shrink: 0;
+}
+
+.infoDescription {
+  font-size: 0.95rem;
+  color: var(--body-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.metric {
+  background-color: var(--metric-bg);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricValue {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.metricLabel {
+  font-size: 0.85rem;
+  color: var(--body-color);
+  font-weight: 400;
+}
+
+.viewCaseStudyButton {
+  align-self: flex-start;
+  position: relative;
+  border: 1px solid transparent;
+  background-color: white;
+  background-clip: padding-box;
+  color: var(--heading-color);
+  padding: 10px 20px;
+  border-radius: var(--button-radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 12px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.viewCaseStudyButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -1px;
+  border-radius: inherit;
+  background: var(--button-gradient);
+}
+
+.viewCaseStudyButton:hover {
+  background: var(--button-gradient);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.imageSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .projectShowContainer {
+    padding: 56px 20px;
+    gap: 40px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .infoSection {
+    flex: 0 0 40%;
+    padding: 28px;
+  }
+
+  .projectImage {
+    max-height: 350px;
+  }
+}
+
+/* Mobile landscape / Small tablet */
+@media (max-width: 900px) {
+  .pageWrapper {
+    margin-top: 50px;
+  }
+
+  .projectShowContainer {
+    padding: 48px 16px;
+    gap: 36px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .headerText {
+    min-width: 100%;
+  }
+
+  .headerCta {
+    align-items: center;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 2.3rem;
+  }
+
+  .projectCard {
+    flex-direction: column;
+  }
+
+  .infoSection {
+    flex: 0 0 auto;
+    padding: 28px;
+  }
+
+  .imageSection {
+    min-height: 300px;
+    padding: 20px;
+  }
+
+  .projectImage {
+    max-height: 320px;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding: 0 16px;
+    margin-top: 40px;
+  }
+
+  .projectShowContainer {
+    padding: 40px 12px;
+    gap: 32px;
+  }
+
+  .header {
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .ctaText {
+    font-size: 0.9rem;
+  }
+
+  .caseStudiesButton {
+    padding: 11px 22px;
+    font-size: 0.85rem;
+  }
+
+  .mainContent {
+    gap: 32px;
+  }
+
+  .infoSection {
+    padding: 24px;
+    gap: 14px;
+  }
+
+  .infoIcon {
+    font-size: 1.1rem;
+  }
+
+  .infoDescription {
+    font-size: 0.9rem;
+  }
+
+  .metric {
+    padding: 12px;
+  }
+
+  .metricValue {
+    font-size: 1rem;
+  }
+
+  .metricLabel {
+    font-size: 0.8rem;
+  }
+
+  .viewCaseStudyButton {
+    padding: 9px 18px;
+    font-size: 0.85rem;
+  }
+
+  .imageSection {
+    min-height: 280px;
+    padding: 16px;
+  }
+
+  .projectImage {
+    max-height: 280px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 600px) {
+  .pageWrapper {
+    padding: 0 12px;
+    margin-top: 30px;
+  }
+
+  .projectShowContainer {
+    padding: 36px 8px;
+    gap: 28px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+
+  .ctaText {
+    font-size: 0.85rem;
+  }
+
+  .caseStudiesButton {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+
+  .mainContent {
+    gap: 28px;
+  }
+
+  .projectCard {
+    border-radius: 16px;
+  }
+
+  .infoSection {
+    padding: 20px;
+    gap: 12px;
+  }
+
+  .infoIcon {
+    font-size: 1rem;
+    gap: 10px;
+  }
+
+  .infoIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .infoDescription {
+    font-size: 0.85rem;
+  }
+
+  .viewCaseStudyButton {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .imageSection {
+    min-height: 240px;
+    padding: 12px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .imageWrapper {
+    border-radius: 12px;
+  }
+
+  .projectImage {
+    max-height: 240px;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .infoSection {
+    padding: 18px;
+  }
+
+  .imageSection {
+    min-height: 220px;
+  }
+
+  .projectImage {
+    max-height: 220px;
+  }
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .projectCard {
+    transition: opacity 0.3s ease;
+    transform: none;
+    filter: none;
+  }
+
+  .projectCard.isVisible {
+    transform: none;
+    filter: none;
+  }
+
+  .caseStudiesButton,
+  .viewCaseStudyButton {
+    transition: background 0.2s ease;
+  }
+}

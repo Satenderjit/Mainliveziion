@@ -1,0 +1,148 @@
+/* --- Main Section Wrapper --- */
+.faqSection {
+  width: 100%;
+  padding: 6rem 2rem;
+  background-color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+/* --- Header Styling --- */
+.faqTitle {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 0.75rem;
+  text-align: center;
+}
+
+.highlight {
+  color: #dd6b20;
+}
+
+.faqSubtitle {
+  font-size: 1.1rem;
+  color: #718096;
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
+  text-align: center;
+}
+
+/* --- FAQ Grid Layout --- */
+.faqGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.faqColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --- Individual FAQ Item --- */
+.faqItem {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.faqItem:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.question h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.toggleIcon {
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: #718096;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* --- Answer Styling & Animation --- */
+.answerWrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.answer {
+  padding: 0 1.5rem 1.25rem 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.answer p {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin: 0;
+  padding-top: 1.25rem;
+}
+
+/* --- Open State Styling --- */
+.faqItem.open .answerWrapper {
+  max-height: 500px; /* Set a large enough value to fit any answer */
+}
+
+.faqItem.open .toggleIcon {
+  transform: rotate(45deg);
+}
+
+/* --- Complex Answer with Bullets --- */
+.bulletPoints {
+  padding: 0.5rem 0;
+}
+
+.bulletPoint {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0 !important;
+  padding-top: 0.5rem !important;
+}
+
+.tick {
+  color: #38a169; /* Green tick */
+  font-weight: bold;
+}
+
+/* --- Responsive Styling --- */
+@media (max-width: 900px) {
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .faqSection {
+    padding: 4rem 1rem;
+  }
+  .faqTitle {
+    font-size: 2.25rem;
+  }
+  .question h3 {
+    font-size: 1rem;
+  }
+}
