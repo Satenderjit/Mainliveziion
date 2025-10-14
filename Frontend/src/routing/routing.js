@@ -45,6 +45,7 @@ import Map from "../Components/map/Map";
 
 // industrial training //
 import Sixmonth from "../Components/industrial training/sixMonthTraining/Sixmonth";
+import LandingPage from "../Components/industrial training/sixMonthTraining/LandingPage/LandingPage";
 import Sixweek from "../Components/industrial training/sixWeekTraining/Sixweek";
 import StudentSearch from "../Components/admin/Studentform.js";
 import CardCarousel from "../Components/placementcarousel/CardCarousel.jsx";

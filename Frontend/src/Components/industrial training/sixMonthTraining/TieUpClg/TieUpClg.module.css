@@ -1,0 +1,71 @@
+/* Defines the keyframe animation for scrolling */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Move the content left by half its width for a seamless loop */
+    transform: translateX(-50%);
+  }
+}
+.tieUpContainer {
+  padding: 10px 10px;
+  width: 100%;
+  text-align: center;
+}
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #333;
+}
+/* This is the main viewport for the marquee */
+.marqueeWrapper {
+  width: 100%;
+  overflow: hidden; /* Hides the logos that scroll out of view */
+  position: relative;
+  /* Optional: add a faded edge effect */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+/* This container holds all the logos and is the element we animate */
+.marqueeContent {
+  display: flex; /* Aligns logos in a row */
+  width: fit-content; /* Ensures the container is wide enough for all logos */
+  /* Apply the animation */
+  animation: scroll 50s linear infinite;
+}
+/* Pause the animation when the user hovers over the marquee */
+.marqueeWrapper:hover .marqueeContent {
+  animation-play-state: paused;
+}
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px; /* Space between logos */
+  flex-shrink: 0;
+}
+.logo {
+  height: 80px; /* Standardize the height of all logos */
+  width: auto; /* Maintain aspect ratio */
+  max-width: 200px;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+/* On hover, make the logo colored and fully opaque */
+.logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
