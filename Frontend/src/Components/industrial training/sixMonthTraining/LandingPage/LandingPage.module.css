@@ -12,8 +12,8 @@
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+ max-width: 1200px;
+  margin: 5rem auto 0; /* Add top margin of 4rem */
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./LandingPage.module.css"; // Import the CSS module
 import GrowthStory from "../GrowthStory/GrowthStory";
 import ProjectShow from "../ProjectShow/ProjectShow";
 import TalkToExpert from "../TalkToExpert/Talktoexpert";
 import TieUpClg from "../TieUpClg/TieUpClg";
+import Form from "../../../form/Form"; // Import the Form component
+import Getdemo from "../../../form/Getdemo"; // Import the Getdemo component
 
 import {
   FaPython,
@@ -71,6 +73,17 @@ const techIcons = [
 ];
 
 const LandingPage = () => {
+  const [showForm, setShowForm] = useState(false);
+  const [showDemo, setShowDemo] = useState(false);
+
+  const closeForm = () => {
+    setShowForm(false);
+  };
+
+  const closeDemo = () => {
+    setShowDemo(false);
+  };
+
   return (
     <main className={styles.container}>
       {/* --- Hero Section --- */}
@@ -90,11 +103,13 @@ const LandingPage = () => {
           <div className={styles.buttonContainer}>
             <button
               className={`${styles.ctaButton} ${styles.ctaButtonPrimary}`}
+              onClick={() => setShowForm(true)}
             >
               Talk To Us
             </button>
             <button
               className={`${styles.ctaButton} ${styles.ctaButtonSecondary}`}
+              onClick={() => setShowDemo(true)}
             >
               Get a DEMO
             </button>
@@ -141,6 +156,10 @@ const LandingPage = () => {
       <FAQ />
       <CompaniesTieUp />
       <TalkToExpert />
+      {/* Form Modal */}
+      {showForm && <Form closeForm={closeForm} />}
+      {/* Demo Form Modal */}
+      {showDemo && <Getdemo closeForm={closeDemo} />}
     </main>
   );
 };
