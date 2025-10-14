@@ -1,6 +1,5 @@
-/* --- CSS VARIABLES & SETUP --- */
-:root {
-  --background-dark: #0A0A0A; /* Even deeper black for more contrast */
+/* :root {
+  --background-dark: #0A0A0A;
   --background-surface: #1A1A1A;
   --text-primary: #F0F0F0;
   --text-secondary: #A0A0A0;
@@ -12,10 +11,9 @@
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --border-radius: 24px;
   --shadow-glow: 0px 10px 40px #007CF030;
-  --transition-smooth: 500ms cubic-bezier(0.2, 0.8, 0.2, 1); /* Smoother easing curve */
+  --transition-smooth: 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* --- GLOBAL & PAGE WRAPPER --- */
 .pageWrapper {
   background-color: var(--background-dark);
   color: var(--text-primary);
@@ -41,14 +39,12 @@
   color: var(--text-highlight);
 }
 
-/* --- ON-SCROLL REVEAL ANIMATION --- */
 .animateFadeIn {
   opacity: 0;
   transition: opacity 1s var(--transition-smooth);
 }
 .animateFadeIn.visible { opacity: 1; }
 
-/* --- HERO SECTION --- */
 .heroSection {
   min-height: 100vh;
   display: flex;
@@ -127,7 +123,6 @@
   box-shadow: var(--shadow-glow);
 }
 
-/* --- INTERACTIVE HOLOGRAPHIC CUBE --- */
 .heroVisual {
   perspective: 2000px;
   will-change: transform;
@@ -159,7 +154,6 @@
 .top    { transform: rotateX(90deg) translateZ(150px); }
 .bottom { transform: rotateX(-90deg) translateZ(150px); }
 
-/* --- ABOUT / BENTO GRID SECTION --- */
 .aboutSection { padding: 8rem 8%; perspective: 2000px; }
 .bentoGrid {
   display: grid;
@@ -167,7 +161,7 @@
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
-  --scroll-progress: 0; /* Updated by JS */
+  --scroll-progress: 0;
 }
 .bentoItem {
   background-color: var(--background-surface);
@@ -178,8 +172,8 @@
   overflow: hidden;
   transition: transform 0.6s var(--transition-smooth), box-shadow 0.6s var(--transition-smooth), border-color 0.6s var(--transition-smooth);
   will-change: transform;
-  /* Scroll-driven animation */
   transform: rotateX(calc(20deg - var(--scroll-progress) * 20deg)) scale(calc(0.9 + var(--scroll-progress) * 0.1));
+}
 .bentoItem::before {
   content: "";
   position: absolute;
@@ -193,7 +187,6 @@
   mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.4s ease;
-}
 }
 .bentoItem:hover {
   transform: translateY(-10px) scale(1.02);
@@ -219,7 +212,6 @@
 .bentoButton { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.8rem 1.8rem; border-radius: 30px; font-weight: 600; cursor: pointer; transition: background-color 0.3s, color 0.3s, transform 0.3s; }
 .bentoButton:hover { background-color: var(--text-highlight); color: #000; transform: scale(1.05); }
 
-/* --- TECH MARQUEE SECTION --- */
 .techSection { padding: 8rem 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
 .marquee { width: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
 .marqueeTrack { display: flex; width: fit-content; animation: scroll 40s linear infinite; }
@@ -234,7 +226,6 @@
 .techIcon img { max-width: 100px; max-height: 50px; }
 @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* --- RESPONSIVE DESIGN --- */
 @media (max-width: 1024px) {
   .heroGrid { grid-template-columns: 1fr; text-align: center; }
   .heroContent { order: 2; }
@@ -244,6 +235,6 @@
 @media (max-width: 768px) {
   .heroHeading { font-size: 2.5rem; }
   .bentoGrid { grid-template-columns: 1fr; }
-  .bentoItem, .bentoItemLarge, .bentoItemWide { grid-column: span 1; transform: none !important; } /* Disable scroll effect on mobile */
+  .bentoItem, .bentoItemLarge, .bentoItemWide { grid-column: span 1; transform: none !important; }
   .cube { transform: scale(0.8); }
-}
+} */
