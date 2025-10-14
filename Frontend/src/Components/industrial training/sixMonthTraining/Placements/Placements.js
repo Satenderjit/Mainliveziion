@@ -201,7 +201,9 @@ const Placements = () => {
 
       {/* --- SECTION 3: MOU Section --- */}
       <section className={styles.mouSection}>
-        <h2 className={styles.sectionTitle}>Our University Tie-Ups & MOUs</h2>
+        <h2 className={styles.sectionTitle}>
+          Tie-Up- MOU signed with CGC Landran
+        </h2>
         <div className={styles.mouMainImages}>
           <img
             src={mouImages[3].src}

@@ -56,8 +56,9 @@ const GrowthStory = () => {
           </div>
           <div className={styles.headerRight}>
             <p className={styles.headerDescription}>
-              Our industry-vetted curriculum and expert mentorship are designed
-              to transform you into a job-ready professional.
+              Ziion Technology enables every student to develop exceptional
+              skills in Six months industrial training in chandigarh and
+              guarantees 100% job assistance in the industry .{" "}
             </p>
           </div>
         </div>
@@ -71,16 +72,22 @@ const GrowthStory = () => {
         <div className={styles.statsGrid}>
           <div className={styles.statCard}>
             <h4>
-              <CountUp end={95} />%
+              <CountUp end={100} />%
             </h4>
-            <p>Job placement success rate for our graduates.</p>
+            <p>
+              Achieve your career goals with our guaranteed 100% placement
+              support!.
+            </p>
           </div>
           {/* CARD 2 NOW HAS THE GLOBE BACKGROUND */}
           <div className={`${styles.statCard} ${styles.globeCard}`}>
             <h4>
               <CountUp end={500} />+
             </h4>
-            <p>Hours of hands-on project-based learning.</p>
+            <p>
+              A hub for experiential, project-driven learning that turns
+              knowledge into practical skills.
+            </p>
             <img
               src="https://prod-strapi-website-media.s3.ap-south-1.amazonaws.com/globe_4e73a29d63.webp"
               alt="Globe graphic"
@@ -92,19 +99,28 @@ const GrowthStory = () => {
             <h4>
               <CountUp end={50} />+
             </h4>
-            <p>Experienced mentors from top-tier companies.</p>
+            <p>
+              Learn directly from industry experts with experience at leading
+              global companies.
+            </p>
           </div>
           <div className={styles.statCard}>
             <h4>
               <CountUp end={20} />+
             </h4>
-            <p>Industry-relevant tools & technologies covered.</p>
+            <p>
+              Gain hands-on experience with the latest tools and technologies
+              used in the industry.
+            </p>
           </div>
           <div className={styles.statCard}>
             <h4>
               <CountUp end={3000} />+
             </h4>
-            <p>Students successfully trained and upskilled.</p>
+            <p>
+              Empowering students to successfully train, upskill, and excel in
+              their careers."
+            </p>
           </div>
           {/* CARD 6 STILL HAS THE GLOBE BACKGROUND */}
           <div className={`${styles.statCard} ${styles.globeCard}`}>
@@ -113,7 +129,10 @@ const GrowthStory = () => {
               -on-
               <CountUp end={1} />
             </h4>
-            <p>Personalized mentorship & doubt-solving sessions.</p>
+            <p>
+              Get individualized guidance and dedicated support through
+              one-on-one mentorship and doubt-clearing sessions .
+            </p>
             <img
               src="https://prod-strapi-website-media.s3.ap-south-1.amazonaws.com/globe_4e73a29d63.webp"
               alt="Globe graphic"

@@ -12,7 +12,7 @@ export function importAll(r) {
 
 const images = importAll(
   require.context(
-    "../../../../assets/TieUpCompanies",
+    "../../../../assets/TieUpCompaniesImg",
     false,
     /\.(png|jpe?g|svg|webp)$/ // Added webp support just in case
   )

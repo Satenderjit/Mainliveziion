@@ -95,21 +95,23 @@ const projectsData = [
   },
   {
     icon: <KanbanIcon />,
-    title: "Collaborative Task Manager",
+    title: "AI/ML ",
     description:
-      "Built a Kanban-style project management tool enabling real-time collaboration. Implemented a drag-and-drop interface for intuitive task workflow management.",
-    techStack: "React & Node.js",
-    coreFeature: "Drag & Drop UI",
+      "Build an AI-powered chatbot that can answer customer queries automatically using NLP (Natural Language Processing)..",
+    techStack: " Python, TensorFlow/Keras, NLTK, Flask/Django",
+    coreFeature: "Understands user queries in natural language.",
     buttonText: "Live Demo",
     imageUrl: taskImage,
   },
   {
     icon: <PortfolioIcon />,
-    title: "Responsive Personal Portfolio",
+    title: " Google ad form",
     description:
-      "Designed and deployed a modern, single-page portfolio application with a focus on clean UI/UX, responsive design, and performance optimization.",
-    techStack: "React & CSS Modules",
-    coreFeature: "Responsive Design",
+      "To create, manage, and optimize paid search and display campaigns.",
+    techStack:
+      "Google Analytics,Google Tag Manager, Google Data Studio (Looker Studio),Google Keyword Planner",
+    coreFeature:
+      "Campaign creation, keyword targeting, audience targeting, bid management, ad scheduling, and A/B testing.",
     buttonText: "View Source",
     imageUrl: portfolioImage,
   },
@@ -159,7 +161,10 @@ const ProjectShow = () => {
           <div className={styles.headerText}>
             <h1 className={styles.title}>
               Featured{" "}
-              <span className={styles.brandStories}>Full-Stack Projects</span>
+              <span className={styles.brandStories}>
+                Real Projects <br /> to Learn ”Modern Tech”
+                <br /> In Six Months Training
+              </span>
             </h1>
           </div>
           <div className={styles.headerCta}>

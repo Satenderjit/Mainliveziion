@@ -40,6 +40,8 @@ import {
 import CompaniesTieUp from "../CompaniesTieUp/CompaniesTieUp";
 import FAQ from "../FAQ/FAQ";
 import Placements from "../Placements/Placements";
+import Proposal from "../../sixWeekTraining/Proposal/Proposal";
+import Courses from "../../sixWeekTraining/Courses/Courses";
 // Data for the technology icons - easy to update!
 const techIcons = [
   { name: "Python", icon: <FaPython size={64} color="#3776ab" /> },
@@ -76,15 +78,26 @@ const LandingPage = () => {
       {/* --- Hero Section --- */}
       <section className={styles.heroGrid}>
         <article className={styles.heroText}>
-          <p className={styles.heroSubtitle}>
-            Join Ziion Technology For A Bright Future
-          </p>
-          <h1>SIX MONTHS</h1>
-          <h2>INDUSTRIAL TRAINING IN CHANDIGARH</h2>
+          <span className={styles.heroSubtitle}>
+            Join Ziion technology for a transformative experience
+          </span>
+          <h1>
+            Transform
+            <br /> Your Career with
+          </h1>
+          <h2> Six Months Industrial Training in Chandigarh</h2>
           <p>
-            Join our 6-Month Industrial Training in Chandigarh with real
-            projects under IT expert mentors. Perfect for B.Tech, BCA, MCA, and
-            diploma students who want to become industry-ready.
+            Ziion Technology is offering six-month industrial training at
+            Chandigarh for students of B.Tech (all streams), MCA, M.Sc (IT),
+            Diploma, and other graduate courses. During the training duration,
+            students are working on actual industry projects where hands-on
+            learning is promoted and technical skills are enhanced. Trained
+            instructors guide them, and latest tools are employed to maintain
+            updated knowledge. The training has been given to prepare the
+            students industry-ready and self-assured in terms of their
+            competence. With 100% placement support, career opportunities are
+            facilitated, and students are aided in finding jobs in
+            well-established companies.
           </p>
           {/* --- MODIFIED: Button Container --- */}
           <div className={styles.buttonContainer}>
@@ -135,12 +148,14 @@ const LandingPage = () => {
         </div>
       </section>
       <ProjectShow />
+      <Courses />
       <Placements />
       <TieUpClg />
       <GrowthStory />
       <FAQ />
       <CompaniesTieUp />
       <TalkToExpert />
+      <Proposal />
     </main>
   );
 };
