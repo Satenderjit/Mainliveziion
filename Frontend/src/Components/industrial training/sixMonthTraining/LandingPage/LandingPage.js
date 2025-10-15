@@ -170,6 +170,7 @@ const LandingPage = () => {
       <FAQ />
       <CompaniesTieUp />
       <TalkToExpert />
+      <Proposal />
       {/* Form Modal */}
       {showForm && <Form closeForm={closeForm} />}
       {/* Demo Form Modal */}

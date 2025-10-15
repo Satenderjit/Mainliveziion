@@ -13,7 +13,7 @@
   --transition-speed: 0.3s;
 
   /* === DEFINED VARIABLES FOR THE BUTTON === */
-  --button-radius: 30px; 
+  --button-radius: 30px;
   --heading-color: var(--color-text-dark);
   --button-gradient: linear-gradient(
     269.86deg,
@@ -260,11 +260,12 @@
 }
 
 .requestProposalButton:hover {
-  background: var(--button-gradient); /* On hover, the button background becomes the gradient */
+  background: var(
+    --button-gradient
+  ); /* On hover, the button background becomes the gradient */
   color: white;
   transform: translateY(-2px);
 }
-
 
 /*
 =========================================
@@ -457,4 +458,94 @@
   .requestProposalButton:hover {
     transform: none;
   }
+}
+
+.formGroup {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.formInput {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  color: #333;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  background: transparent;
+}
+
+.formInput:focus,
+.formInput:not(:placeholder-shown) {
+  border-bottom: 2px solid #007bff;
+}
+
+.formLabel {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 1rem;
+  color: #999;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.formInput:focus ~ .formLabel,
+.formInput:not(:placeholder-shown) ~ .formLabel {
+  top: -15px;
+  font-size: 0.8rem;
+  color: #007bff;
+}
+
+/* --- NEW STYLES FOR RADIO BUTTONS --- */
+.radioGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.radioGroup label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radioGroup input[type="radio"] {
+  margin-right: 0.5rem;
+  accent-color: #007bff; /* Modern way to color radio buttons */
+}
+/* --- End of new styles --- */
+
+.formActions {
+  display: flex;
+  justify-content: flex-end; /* Aligns button to the right */
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.requestProposalButton {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.requestProposalButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
+}
+
+.requestProposalButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
