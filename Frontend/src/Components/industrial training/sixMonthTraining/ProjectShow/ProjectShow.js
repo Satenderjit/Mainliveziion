@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ProjectShow.module.css";
 import { useInView } from "react-intersection-observer";
+import Form from "../../../form/Getdemo"; // Import the form component
 
 // Make sure the path to your images is correct
 import financialImage from "../../../../assets/ProjectImages/Financial.jpg";
@@ -31,6 +32,7 @@ const projectsData = [
     techStack: "MERN Stack",
     coreFeature: "Payment Gateway",
     buttonText: "Live Demo",
+    buttonType: "demo", // Added button type
     imageUrl: ecomImage,
   },
   {
@@ -40,6 +42,7 @@ const projectsData = [
     techStack: "React & Chart.js",
     coreFeature: "Data Visualization",
     buttonText: "Live Demo",
+    buttonType: "demo", // Added button type
     imageUrl: financialImage,
   },
   {
@@ -49,6 +52,7 @@ const projectsData = [
     techStack: "React & Node.js",
     coreFeature: "Drag & Drop UI",
     buttonText: "Live Demo",
+    buttonType: "demo", // Added button type
     imageUrl: taskImage,
   },
   {
@@ -58,16 +62,34 @@ const projectsData = [
     techStack: "React & CSS Modules",
     coreFeature: "Responsive Design",
     buttonText: "View Source",
+    buttonType: "source", // Added button type
     imageUrl: portfolioImage,
   },
 ];
 
 // --- Animated Card Component ---
-const AnimatedProjectCard = ({ project, index }) => {
+const AnimatedProjectCard = ({ project, index, onDemoClick }) => {
   const { ref, inView } = useInView({
     threshold: 0.1,
-    triggerOnce: true, // This line stops the animation from repeating
+    // triggerOnce has been removed to allow continuous animations
   });
+
+  const handleClick = () => {
+    if (project.buttonType === "demo") {
+      onDemoClick(project); // Open form for demo buttons
+    } else if (project.buttonType === "source") {
+      // Open GitHub repository for source buttons
+      if (project.title === "Responsive Personal Portfolio") {
+        window.open("https://github.com/ziion-technology/personal-portfolio", "_blank");
+      } else if (project.title === "Scalable E-commerce Platform") {
+        window.open("https://github.com/ziion-technology/ecommerce-platform", "_blank");
+      } else if (project.title === "Financial Analytics Dashboard") {
+        window.open("https://github.com/ziion-technology/financial-dashboard", "_blank");
+      } else if (project.title === "Collaborative Task Manager") {
+        window.open("https://github.com/ziion-technology/task-manager", "_blank");
+      }
+    }
+  };
 
   return (
     <div
@@ -89,7 +111,7 @@ const AnimatedProjectCard = ({ project, index }) => {
           <span className={styles.metricValue}>{project.coreFeature}</span>
           <span className={styles.metricLabel}>Core Feature</span>
         </div>
-        <button className={styles.viewCaseStudyButton}>
+        <button className={styles.viewCaseStudyButton} onClick={handleClick}>
           {project.buttonText}
         </button>
       </div>
@@ -108,6 +130,19 @@ const AnimatedProjectCard = ({ project, index }) => {
 
 // --- Main Component ---
 const Projectshow = () => {
+  const [showDemoForm, setShowDemoForm] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const handleDemoClick = (project) => {
+    setSelectedProject(project);
+    setShowDemoForm(true);
+  };
+
+  const closeDemoForm = () => {
+    setShowDemoForm(false);
+    setSelectedProject(null);
+  };
+
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.projectShowContainer}>
@@ -130,10 +165,16 @@ const Projectshow = () => {
 
         <main className={styles.mainContent}>
           {projectsData.map((project, index) => (
-            <AnimatedProjectCard key={index} project={project} index={index} />
+            <AnimatedProjectCard 
+              key={index} 
+              project={project} 
+              index={index} 
+              onDemoClick={handleDemoClick}
+            />
           ))}
         </main>
       </div>
+      {showDemoForm && <Form closeForm={closeDemoForm} />}
     </div>
   );
 };

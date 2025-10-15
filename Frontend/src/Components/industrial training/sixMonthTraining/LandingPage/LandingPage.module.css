@@ -12,7 +12,7 @@
 }
 
 .container {
- max-width: 1200px;
+  max-width: 1300px;
   margin: 5rem auto 0; /* Add top margin of 4rem */
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -38,7 +38,7 @@
 .heroSubtitle {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--primary-blue);
+  color: var(--primary-grey);
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -50,6 +50,14 @@
   color: var(--text-dark);
   margin: 0;
   line-height: 1.1;
+}
+
+/* ADDED: New class for the gradient text */
+.gradientText {
+  background: linear-gradient(269.86deg, #2c52be 11.04%, #ff822b 75.82%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .heroText h2 {
@@ -67,7 +75,8 @@
   color: var(--text-medium);
   line-height: 1.7;
   max-width: 500px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .buttonContainer {
@@ -109,7 +118,6 @@
   box-shadow: 0 4px 15px rgba(0, 82, 204, 0.2);
 }
 
-/* --- PROFESSIONAL FLOATING IMAGE ANIMATION --- */
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -187,36 +195,33 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(calc(-200px * 7));
+    /* This calculation might need adjustment based on the final number of icons */
+    transform: translateX(calc(-200px * 26)); /* 26 is the number of tech icons */
   }
 }
 
 .logoTrack {
   display: flex;
-  width: calc(200px * 14);
-  animation: scroll 40s linear infinite;
+  /* This calculation needs to be precise: width * number of icons * 2 */
+  width: calc(200px * 52); /* 26 icons * 2 */
+  animation: scroll 60s linear infinite; /* Increased duration for smoother scroll */
 }
 
 .logoSlide {
   width: 200px;
-  padding: 0 40px;
+  padding: 0 20px;
+  box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 
-.logoSlide img {
-  max-width: 120px;
-  height: auto;
-  filter: grayscale(100%);
-  opacity: 0.6;
-  transition: all var(--transition-speed) ease;
-}
-
-.logoSlide img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: scale(1.1);
+.techName {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  font-weight: 500;
 }
 
 /* --- RESPONSIVE STYLES --- */
@@ -236,7 +241,6 @@
   .heroGrid {
     grid-template-columns: 1fr;
     text-align: center;
-    /* UPDATED: Reduced the large gap after the hero section on mobile */
     margin-bottom: 3rem;
   }
 
@@ -247,7 +251,6 @@
 
   .heroImageContainer {
     order: 1;
-    /* UPDATED: Drastically reduced the gap between the image and text */
     margin-bottom: 0.5rem;
     animation-duration: 4.5s;
   }
@@ -265,7 +268,6 @@
   }
 
   .partnersSection {
-    /* Added to reduce the top padding, closing the gap further */
     padding-top: 0;
   }
 
