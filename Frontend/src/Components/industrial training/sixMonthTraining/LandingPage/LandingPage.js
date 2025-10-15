@@ -49,26 +49,17 @@ const LandingPage = () => {
             Join Ziion technology for a transformative experience
           </span>
           <h1>
-            Six Months
-            <br />
-            {/* MODIFIED: Wrapped text in a span with the new gradient class */}
-            <span className={styles.gradientText}>
-              Industrial Training 
-            </span> in Chandigarh
+            Six Months  <span className={styles.gradientText}>
+                Industrial Training    
+            </span>   in Chandigarh
+           
           </h1>
           <p>
             Ziion Technology is offering six-month industrial training at
-            Chandigarh for students of B.Tech (all streams), MCA, M.Sc (IT),
+            Chandigarh for students of B.Tech , MCA, M.Sc (IT),
             Diploma, and other graduate courses. During the training duration,
             students are working on actual industry projects where hands-on
-            learning is promoted and technical skills are enhanced. Trained
-            instructors guide them, and latest tools are employed to maintain
-            updated knowledge. The training has been given to prepare the
-
-            students industry-ready and self-assured in terms of their
-            competence. With 100% placement support, career opportunities are
-            facilitated, and students are aided in finding jobs in
-            well-established companies.
+            learning is promoted and technical skills are enhanced. 
           </p>
           <div className={styles.buttonContainer}>
             <button
