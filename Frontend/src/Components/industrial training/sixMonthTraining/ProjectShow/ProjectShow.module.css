@@ -128,16 +128,6 @@
   transform: translateY(0) scale(1);
 }
 
-.projectCard:nth-child(2) {
-  transition-delay: 0.1s;
-}
-.projectCard:nth-child(3) {
-  transition-delay: 0.2s;
-}
-.projectCard:nth-child(4) {
-  transition-delay: 0.3s;
-}
-
 .infoSection {
   flex: 0 0 35%;
   padding: 32px;
@@ -253,258 +243,73 @@
   display: block;
 }
 
-/* Tablet styles */
+/* Responsive Styles */
 @media (max-width: 1024px) {
-  .projectShowContainer {
-    padding: 56px 20px;
-    gap: 40px;
-  }
-
-  .title {
-    font-size: 2.5rem;
-  }
-
-  .infoSection {
-    flex: 0 0 40%;
-    padding: 28px;
-  }
-
-  .projectImage {
-    max-height: 350px;
-  }
+  .projectShowContainer { padding: 56px 20px; gap: 40px; }
+  .title { font-size: 2.5rem; }
+  .infoSection { flex: 0 0 40%; padding: 28px; }
+  .projectImage { max-height: 350px; }
 }
 
-/* Mobile landscape / Small tablet */
 @media (max-width: 900px) {
-  .pageWrapper {
-    margin-top: 50px;
-  }
-
-  .projectShowContainer {
-    padding: 48px 16px;
-    gap: 36px;
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 24px;
-  }
-
-  .headerText {
-    min-width: 100%;
-  }
-
-  .headerCta {
-    align-items: center;
-    min-width: 100%;
-    max-width: 100%;
-  }
-
-  .title {
-    font-size: 2.3rem;
-  }
-
-  .projectCard {
-    flex-direction: column;
-  }
-
-  .infoSection {
-    flex: 0 0 auto;
-    padding: 28px;
-  }
-
-  .imageSection {
-    min-height: 300px;
-    padding: 20px;
-  }
-
-  .projectImage {
-    max-height: 320px;
-  }
+  .pageWrapper { margin-top: 50px; }
+  .projectShowContainer { padding: 48px 16px; gap: 36px; }
+  .header { flex-direction: column; align-items: center; text-align: center; gap: 24px; }
+  .headerText, .headerCta { min-width: 100%; max-width: 100%; }
+  .headerCta { align-items: center; }
+  .title { font-size: 2.3rem; }
+  .projectCard { flex-direction: column; }
+  .infoSection { flex: 0 0 auto; padding: 28px; }
+  .imageSection { min-height: 300px; padding: 20px; }
+  .projectImage { max-height: 320px; }
 }
 
-/* Mobile portrait */
 @media (max-width: 768px) {
-  .pageWrapper {
-    padding: 0 16px;
-    margin-top: 40px;
-  }
-
-  .projectShowContainer {
-    padding: 40px 12px;
-    gap: 32px;
-  }
-
-  .header {
-    gap: 20px;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .ctaText {
-    font-size: 0.9rem;
-  }
-
-  .caseStudiesButton {
-    padding: 11px 22px;
-    font-size: 0.85rem;
-  }
-
-  .mainContent {
-    gap: 32px;
-  }
-
-  .infoSection {
-    padding: 24px;
-    gap: 14px;
-  }
-
-  .infoIcon {
-    font-size: 1.1rem;
-  }
-
-  .infoDescription {
-    font-size: 0.9rem;
-  }
-
-  .metric {
-    padding: 12px;
-  }
-
-  .metricValue {
-    font-size: 1rem;
-  }
-
-  .metricLabel {
-    font-size: 0.8rem;
-  }
-
-  .viewCaseStudyButton {
-    padding: 9px 18px;
-    font-size: 0.85rem;
-  }
-
-  .imageSection {
-    min-height: 280px;
-    padding: 16px;
-  }
-
-  .projectImage {
-    max-height: 280px;
-  }
+  .pageWrapper { padding: 0 16px; margin-top: 40px; }
+  .projectShowContainer { padding: 40px 12px; gap: 32px; }
+  .header { gap: 20px; }
+  .title { font-size: 2rem; }
+  .ctaText { font-size: 0.9rem; }
+  .caseStudiesButton { padding: 11px 22px; font-size: 0.85rem; }
+  .mainContent { gap: 32px; }
+  .infoSection { padding: 24px; gap: 14px; }
+  .infoIcon { font-size: 1.1rem; }
+  .infoDescription { font-size: 0.9rem; }
+  .metric { padding: 12px; }
+  .metricValue { font-size: 1rem; }
+  .metricLabel { font-size: 0.8rem; }
+  .viewCaseStudyButton { padding: 9px 18px; font-size: 0.85rem; }
+  .imageSection { min-height: 280px; padding: 16px; }
+  .projectImage { max-height: 280px; }
 }
 
-/* Small mobile */
 @media (max-width: 600px) {
-  .pageWrapper {
-    padding: 0 12px;
-    margin-top: 30px;
-  }
-
-  .projectShowContainer {
-    padding: 36px 8px;
-    gap: 28px;
-  }
-
-  .title {
-    font-size: 1.8rem;
-    margin-bottom: 12px;
-  }
-
-  .ctaText {
-    font-size: 0.85rem;
-  }
-
-  .caseStudiesButton {
-    padding: 10px 20px;
-    font-size: 0.8rem;
-  }
-
-  .mainContent {
-    gap: 28px;
-  }
-
-  .projectCard {
-    border-radius: 16px;
-  }
-
-  .infoSection {
-    padding: 20px;
-    gap: 12px;
-  }
-
-  .infoIcon {
-    font-size: 1rem;
-    gap: 10px;
-  }
-
-  .infoIcon svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .infoDescription {
-    font-size: 0.85rem;
-  }
-
-  .viewCaseStudyButton {
-    padding: 8px 16px;
-    font-size: 0.8rem;
-  }
-
-  .imageSection {
-    min-height: 240px;
-    padding: 12px;
-    border-radius: 0 0 16px 16px;
-  }
-
-  .imageWrapper {
-    border-radius: 12px;
-  }
-
-  .projectImage {
-    max-height: 240px;
-  }
+  .pageWrapper { padding: 0 12px; margin-top: 30px; }
+  .projectShowContainer { padding: 36px 8px; gap: 28px; }
+  .title { font-size: 1.8rem; margin-bottom: 12px; }
+  .ctaText { font-size: 0.85rem; }
+  .caseStudiesButton { padding: 10px 20px; font-size: 0.8rem; }
+  .mainContent { gap: 28px; }
+  .projectCard { border-radius: 16px; }
+  .infoSection { padding: 20px; gap: 12px; }
+  .infoIcon { font-size: 1rem; gap: 10px; }
+  .infoIcon svg { width: 18px; height: 18px; }
+  .infoDescription { font-size: 0.85rem; }
+  .viewCaseStudyButton { padding: 8px 16px; font-size: 0.8rem; }
+  .imageSection { min-height: 240px; padding: 12px; border-radius: 0 0 16px 16px; }
+  .imageWrapper { border-radius: 12px; }
+  .projectImage { max-height: 240px; }
 }
 
-/* Extra small mobile */
 @media (max-width: 480px) {
-  .title {
-    font-size: 1.6rem;
-  }
-
-  .infoSection {
-    padding: 18px;
-  }
-
-  .imageSection {
-    min-height: 220px;
-  }
-
-  .projectImage {
-    max-height: 220px;
-  }
+  .title { font-size: 1.6rem; }
+  .infoSection { padding: 18px; }
+  .imageSection { min-height: 220px; }
+  .projectImage { max-height: 220px; }
 }
 
-/* Accessibility - Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .projectCard {
-    transition: opacity 0.3s ease;
-    transform: none;
-    filter: none;
-  }
-
-  .projectCard.isVisible {
-    transform: none;
-    filter: none;
-  }
-
-  .caseStudiesButton,
-  .viewCaseStudyButton {
-    transition: background 0.2s ease;
-  }
+  .projectCard { transition: opacity 0.3s ease; transform: none; filter: none; }
+  .projectCard.isVisible { transform: none; filter: none; }
+  .caseStudiesButton, .viewCaseStudyButton { transition: background 0.2s ease; }
 }
