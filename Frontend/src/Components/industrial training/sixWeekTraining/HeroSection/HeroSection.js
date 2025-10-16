@@ -1,115 +1,104 @@
-import React, { useState } from "react";
-import styles from "./HeroSection.module.css"; // Import the CSS module
-import Form from "../../../form/Form"; // Import the Form component
-import Getdemo from "../../../form/Getdemo"; // Import the Getdemo component
-
+import React, { useState, useEffect, useRef } from "react";
+import styles from "./HeroSection.module.css";
 import Placements from "../../sixMonthTraining/Placements/Placements";
-import WhyChooseUs from "../../sixWeekTraining/WhyChooseUs/WhyChooseUS";
-import ProjectShow from "../../sixMonthTraining/ProjectShow/ProjectShow";
-import Courses from "../../sixWeekTraining/Courses/Courses";
 import TieUpClg from "../../sixMonthTraining/TieUpClg/TieUpClg";
+import WhyChooseUs from "../../sixWeekTraining/WhyChooseUs/WhyChooseUS";
 import FAQ2 from "../../sixWeekTraining/FAQ2/FAQ2";
 import CompaniesTieUp from "../../sixMonthTraining/CompaniesTieUp/CompaniesTieUp";
-import TalkToExpert from "../../sixMonthTraining/TalkToExpert/Talktoexpert";
-import Proposal from "../../sixWeekTraining/Proposal/Proposal";
-
+import Talktoexpert from "../../sixMonthTraining/TalkToExpert/Talktoexpert";
+import Propoasl from "../../sixWeekTraining/Proposal/Proposal";
+// IMPORT NEW ICONS for the cube and scroller
 import {
-  FaPython,
-  FaJs,
-  FaJava,
-  FaCss3,
-  FaHtml5,
   FaReact,
-  FaNodeJs,
-  FaAngular,
-  FaVuejs,
-  FaBootstrap,
-  FaSass,
-  FaGit,
-  FaDocker,
-  FaAws,
-  FaRust,
-  FaPhp,
-  FaSwift,
-  FaAndroid,
-  FaApple,
-  FaCode,
+  FaBrain, // Icon for AI
+  FaProjectDiagram, // Icon for ML
+  FaTools, // Icon for Web Dev Tools
+  FaBullhorn, // Icon for Digital Marketing
+  FaDatabase, // Icon for Data
+  FaJs,
+  FaPython,
 } from "react-icons/fa";
-import { DiMongodb, DiPostgresql, DiMysql, DiJqueryLogo } from "react-icons/di";
-import {
-  SiTypescript,
-  SiKotlin,
-  SiGo,
-  SiRuby,
-  SiPerl,
-  SiR,
-  SiScala,
-} from "react-icons/si";
+import ProjectShow from "../../sixMonthTraining/ProjectShow/ProjectShow"
+import Form from "../../../form/Form";
+import GetdemoComponent from "../../../form/Getdemo";
+import Courses from "../../sixWeekTraining/Courses/Courses";
 
-// Data for the technology icons - easy to update!
+const Getdemo = GetdemoComponent;
+
+// NEW icon array with a focus on tech fields
 const techIcons = [
-  { name: "Python", icon: <FaPython size={64} color="#3776ab" /> },
+  { name: "React", icon: <FaReact size={64} color="#61DAFB" /> },
+  { name: "Artificial Intelligence", icon: <FaBrain size={64} color="#8A2BE2" /> },
+  { name: "Machine Learning", icon: <FaProjectDiagram size={64} color="#FF6347" /> },
+  { name: "Web Dev Tools", icon: <FaTools size={64} color="#708090" /> },
+  { name: "Digital Marketing", icon: <FaBullhorn size={64} color="#1E90FF" /> },
+  { name: "Data Science", icon: <FaDatabase size={64} color="#4682B4" /> },
+  // Keep some of the old ones for the scroller
   { name: "JavaScript", icon: <FaJs size={64} color="#f7df1e" /> },
-  { name: "Java", icon: <FaJava size={64} color="#ed8b00" /> },
-  { name: "CSS", icon: <FaCss3 size={64} color="#1572b6" /> },
-  { name: "HTML", icon: <FaHtml5 size={64} color="#e34f26" /> },
-  { name: "React", icon: <FaReact size={64} color="#61dafb" /> },
-  { name: "Node.js", icon: <FaNodeJs size={64} color="#339933" /> },
-  { name: "Angular", icon: <FaAngular size={64} color="#dd0031" /> },
-  { name: "Vue.js", icon: <FaVuejs size={64} color="#4fc08d" /> },
-  { name: "Bootstrap", icon: <FaBootstrap size={64} color="#7952b3" /> },
-  { name: "Sass", icon: <FaSass size={64} color="#cc6699" /> },
-  { name: "Git", icon: <FaGit size={64} color="#f05032" /> },
-  { name: "Docker", icon: <FaDocker size={64} color="#2496ed" /> },
-  { name: "AWS", icon: <FaAws size={64} color="#ff9900" /> },
-  { name: "Rust", icon: <FaRust size={64} color="#000000" /> },
-  { name: "C", icon: <FaCode size={64} color="#A8B9CC" /> },
-  { name: "PHP", icon: <FaPhp size={64} color="#777bb4" /> },
-  { name: "Swift", icon: <FaSwift size={64} color="#FA7343" /> },
-  { name: "Android", icon: <FaAndroid size={64} color="#3DDC84" /> },
-  { name: "MongoDB", icon: <DiMongodb size={64} color="#47A248" /> },
-  { name: "PostgreSQL", icon: <DiPostgresql size={64} color="#336791" /> },
-  { name: "MySQL", icon: <DiMysql size={64} color="#4479A1" /> },
-  { name: "TypeScript", icon: <SiTypescript size={64} color="#3178c6" /> },
-  { name: "Kotlin", icon: <SiKotlin size={64} color="#0095D5" /> },
-  { name: "Go", icon: <SiGo size={64} color="#00ADD8" /> },
-  { name: "Ruby", icon: <SiRuby size={64} color="#CC342D" /> },
+  { name: "Python", icon: <FaPython size={64} color="#3776ab" /> },
 ];
+
+// The first 6 icons will be used for the cube faces
+const cubeIcons = techIcons.slice(0, 6);
 
 const HeroSection = () => {
   const [showForm, setShowForm] = useState(false);
   const [showDemo, setShowDemo] = useState(false);
 
-  const closeForm = () => {
-    setShowForm(false);
-  };
+  const heroVisualRef = useRef(null);
+  // Ref to hold the animation frame ID
+  const animationFrameId = useRef(null);
 
-  const closeDemo = () => {
-    setShowDemo(false);
-  };
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      // If there's a pending animation frame, cancel it.
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+      
+      // Schedule the style update to run on the next animation frame.
+      animationFrameId.current = requestAnimationFrame(() => {
+        if (heroVisualRef.current) {
+          const { clientX, clientY } = e;
+          const { innerWidth, innerHeight } = window;
+          const rotateX = (clientY / innerHeight - 0.5) * -20;
+          const rotateY = (clientX / innerWidth - 0.5) * 20;
+          heroVisualRef.current.style.setProperty("--mouse-rotate-x", `${rotateX}deg`);
+          heroVisualRef.current.style.setProperty("--mouse-rotate-y", `${rotateY}deg`);
+        }
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      // Also cancel any pending frame when the component unmounts
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+    };
+  }, []); // Empty dependency array means this effect runs only once.
+
+  const closeForm = () => setShowForm(false);
+  const closeDemo = () => setShowDemo(false);
 
   return (
     <main className={styles.container}>
       {/* --- Hero Section --- */}
       <section className={styles.heroGrid}>
         <article className={styles.heroText}>
-          <p className={styles.heroSubtitle}>
-            Join Ziion Technology For A Bright Future
-          </p>
-          <h1>
-            Six Weeks{" "}
-            <span className={styles.gradientText}>Industrial Training</span> in
-            Chandigarh
+          <span className={`${styles.heroSubtitle} ${styles.animateFadeIn}`}>
+            Join Ziion technology for a transformative experience
+          </span>
+          <h1 className={styles.animateFadeIn}>
+            Six Weeks <span className={styles.gradientText}>Industrial Training</span> in Chandigarh
           </h1>
-          <p>
-            Want to acquire hands-on experience and enhance your technical
-            proficiency within a matter of weeks? Our Six Week Industrial
-            Training in Chandigarh is an ideal platform for students and new
-            graduates interested in gaining hands-on experience of real-world
-            technologies—without waiting for the final year of their degree.
+          <p className={styles.animateFadeIn}>
+Ziion Technology is offering six-weeks industrial training at Chandigarh for students of B.Tech , MCA, M.Sc (IT), Diploma, and other graduate courses. During the training duration, students are working on actual industry projects where hands-on learning is promoted and technical skills are enhanced.
           </p>
-          {/* --- MODIFIED: Button Container --- */}
-          <div className={styles.buttonContainer}>
+          <div className={`${styles.buttonContainer} ${styles.animateFadeIn}`}>
             <button
               className={`${styles.ctaButton} ${styles.ctaButtonPrimary}`}
               onClick={() => setShowForm(true)}
@@ -125,24 +114,26 @@ const HeroSection = () => {
           </div>
         </article>
 
-        <div className={styles.heroImageContainer}>
-          <img
-            src="https://prod-strapi-website-media.s3.ap-south-1.amazonaws.com/animation_Home_194d1f8f8b.webp"
-            alt="Banner animation"
-            className={styles.heroImage}
-          />
+        {/* --- Cube Visual Element --- */}
+        <div ref={heroVisualRef} className={styles.heroImageContainer}>
+          <div className={styles.cube}>
+            <div className={`${styles.face} ${styles.front}`}>{cubeIcons[0]?.icon}</div>
+            <div className={`${styles.face} ${styles.back}`}>{cubeIcons[1]?.icon}</div>
+            <div className={`${styles.face} ${styles.right}`}>{cubeIcons[2]?.icon}</div>
+            <div className={`${styles.face} ${styles.left}`}>{cubeIcons[3]?.icon}</div>
+            <div className={`${styles.face} ${styles.top}`}>{cubeIcons[4]?.icon}</div>
+            <div className={`${styles.face} ${styles.bottom}`}>{cubeIcons[5]?.icon}</div>
+          </div>
         </div>
       </section>
 
-      {/* --- Tech Icons Section --- */}
+      {/* --- Other sections --- */}
       <section className={styles.partnersSection}>
         <h3>
-          Learn with the best{" "}
-          <span className={styles.highlight}>Technologies</span>
+          Learn with the best <span className={styles.highlight}>Technologies</span>
         </h3>
         <div className={styles.logoScroller}>
           <div className={styles.logoTrack}>
-            {/* We render the list twice for a seamless loop */}
             {techIcons.map((tech, index) => (
               <div className={styles.logoSlide} key={index}>
                 {tech.icon}
@@ -162,16 +153,11 @@ const HeroSection = () => {
       <Courses />
       <Placements />
       <TieUpClg />
-      <WhyChooseUs />
-      <FAQ2 />
+      <WhyChooseUs/>
+      <FAQ2/>
       <CompaniesTieUp />
-      <TalkToExpert />
-      <Proposal />
-
-      {/* Form Modal */}
+      <Talktoexpert/>
       {showForm && <Form closeForm={closeForm} />}
-
-      {/* Demo Form Modal */}
       {showDemo && <Getdemo closeForm={closeDemo} />}
     </main>
   );

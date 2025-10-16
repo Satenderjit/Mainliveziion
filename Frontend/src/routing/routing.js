@@ -58,8 +58,6 @@ export const routes = [
   { path: "/contact-us", element: <Help /> },
   { path: "/help/:topicName", element: <HelpTopicArticles /> },
 
-  { path: "/allcourses", element: <CoursesCard /> },
-
   // further menu
   { path: "/widget", element: <Widgets /> },
   { path: "/knowledge", element: <KnowledgeBase /> },
@@ -89,10 +87,9 @@ export const routes = [
 
   { path: "/aboutus", element: <AboutUs /> },
 
-  // all cousres routing //
+  // all courses routing //
   { path: "/allcourses", element: <CoursesCard /> },
   { path: "/allcourses/:courseRoute", element: <CourseDetail /> },
-
   { path: "/allcourses/:courseTitle", element: <CourseDetail /> },
 
   { path: "/form", element: <Form /> },
@@ -104,7 +101,7 @@ export const routes = [
 
   { path: "/map", element: <Map /> },
 
-  { path: "/admin", elemen: <StudentSearch /> },
+  { path: "/admin", element: <StudentSearch /> },
 
   // industrial training //
   // six month //
@@ -115,5 +112,4 @@ export const routes = [
   { path: "/search", element: <StudentSearch /> },
 
   { path: "/courses", element: <CoursesCard /> },
-   { path: "/", element: <CoursesCard /> },
 ];
