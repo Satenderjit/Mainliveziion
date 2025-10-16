@@ -3,14 +3,18 @@ import styles from "./fixedform.module.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { FormFilled, resetForm } from '../store/studentSlice';
 import emailjs from '@emailjs/browser';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function FixedForm() {
   const formData = useSelector(state => state.student);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
+
+  // Determine if we're on the special pages that need white theme
+  const isSpecialPage = location.pathname === '/six-month-training' || location.pathname === '/six-weeks-training';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,14 +59,14 @@ export default function FixedForm() {
   return (
     <>
       {/* Left Vertical Button */}
-      <div className={styles.leftButtonContainer} onClick={() => setOpen(true)}>
-        <span className={styles.leftButtonText}>
+      <div className={`${styles.leftButtonContainer} ${isSpecialPage ? styles.whiteTheme : ''}`} onClick={() => setOpen(true)}>
+        <span className={`${styles.leftButtonText} ${isSpecialPage ? styles.whiteThemeText : ''}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={styles.leftButtonIcon}
+            className={`${styles.leftButtonIcon} ${isSpecialPage ? styles.whiteThemeIcon : ''}`}
             fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor"
+            stroke={isSpecialPage ? "white" : "currentColor"}
             strokeWidth={2}
           >
             <path
@@ -77,11 +81,11 @@ export default function FixedForm() {
 
       {/* Popup Form */}
       {open && (
-        <div className={styles.popupOverlay}>
-          <div className={styles.popupFormBox}>
-            <h3>Talk To Our Expert Today</h3>
+        <div className={`${styles.popupOverlay} ${isSpecialPage ? styles.whiteThemeOverlay : ''}`}>
+          <div className={`${styles.popupFormBox} ${isSpecialPage ? styles.whiteThemeFormBox : ''}`}>
+            <h3 className={isSpecialPage ? styles.whiteThemeHeading : ''}>Talk To Our Expert Today</h3>
             <button
-              className={styles.popupCloseBtn}
+              className={`${styles.popupCloseBtn} ${isSpecialPage ? styles.whiteThemeCloseBtn : ''}`}
               onClick={() => setOpen(false)}
               aria-label="Close form"
             >
@@ -96,6 +100,7 @@ export default function FixedForm() {
                 value={formData.name}
                 onChange={handleChange}
                 required
+                className={isSpecialPage ? styles.whiteThemeInput : ''}
               />
               <input
                 type="email"
@@ -104,6 +109,7 @@ export default function FixedForm() {
                 value={formData.email}
                 onChange={handleChange}
                 required
+                className={isSpecialPage ? styles.whiteThemeInput : ''}
               />
               <input
                 type="tel"
@@ -112,12 +118,14 @@ export default function FixedForm() {
                 value={formData.phone}
                 onChange={handleChange}
                 required
+                className={isSpecialPage ? styles.whiteThemeInput : ''}
               />
               <select
                 name="course"
                 value={formData.course}
                 onChange={handleChange}
                 required
+                className={isSpecialPage ? styles.whiteThemeInput : ''}
               >
                 <option value="">Select Course*</option>
                 <option value="Full Stack Development">Full Stack Development</option>
@@ -133,10 +141,10 @@ export default function FixedForm() {
               </select>
 
              <div>
-               <button type="submit" disabled={loading} className={styles.popupSubmitBtn}>
+               <button type="submit" disabled={loading} className={`${styles.popupSubmitBtn} ${isSpecialPage ? styles.whiteThemeSubmitBtn : ''}`}>
                 {loading ? 'Submitting...' : 'Submit'}
               </button>
-              <button type="button" onClick={handleReset} className={styles.popupResetBtn}>
+              <button type="button" onClick={handleReset} className={`${styles.popupResetBtn} ${isSpecialPage ? styles.whiteThemeResetBtn : ''}`}>
                 Reset
               </button>
              </div>

@@ -3,6 +3,16 @@ import styles from "./HeroSection.module.css"; // Import the CSS module
 import Form from "../../../form/Form"; // Import the Form component
 import Getdemo from "../../../form/Getdemo"; // Import the Getdemo component
 
+import Placements from "../../sixMonthTraining/Placements/Placements";
+import WhyChooseUs from "../../sixWeekTraining/WhyChooseUs/WhyChooseUS";
+import ProjectShow from "../../sixMonthTraining/ProjectShow/ProjectShow";
+import Courses from "../../sixWeekTraining/Courses/Courses";
+import TieUpClg from "../../sixMonthTraining/TieUpClg/TieUpClg";
+import FAQ2 from "../../sixWeekTraining/FAQ2/FAQ2";
+import CompaniesTieUp from "../../sixMonthTraining/CompaniesTieUp/CompaniesTieUp";
+import TalkToExpert from "../../sixMonthTraining/TalkToExpert/Talktoexpert";
+import Proposal from "../../sixWeekTraining/Proposal/Proposal";
+
 import {
   FaPython,
   FaJs,
@@ -86,12 +96,17 @@ const HeroSection = () => {
           <p className={styles.heroSubtitle}>
             Join Ziion Technology For A Bright Future
           </p>
-          <h1>SIX WEEKS</h1>
-          <h2>INDUSTRIAL TRAINING IN CHANDIGARH</h2>
+          <h1>
+            Six Weeks{" "}
+            <span className={styles.gradientText}>Industrial Training</span> in
+            Chandigarh
+          </h1>
           <p>
-            Join our 6-WEEKS Industrial Training in Chandigarh with real
-            projects under IT expert mentors. Perfect for B.Tech, BCA, MCA, and
-            diploma students who want to become industry-ready.
+            Want to acquire hands-on experience and enhance your technical
+            proficiency within a matter of weeks? Our Six Week Industrial
+            Training in Chandigarh is an ideal platform for students and new
+            graduates interested in gaining hands-on experience of real-world
+            technologies—without waiting for the final year of their degree.
           </p>
           {/* --- MODIFIED: Button Container --- */}
           <div className={styles.buttonContainer}>
@@ -143,10 +158,19 @@ const HeroSection = () => {
           </div>
         </div>
       </section>
-      
+      <ProjectShow />
+      <Courses />
+      <Placements />
+      <TieUpClg />
+      <WhyChooseUs />
+      <FAQ2 />
+      <CompaniesTieUp />
+      <TalkToExpert />
+      <Proposal />
+
       {/* Form Modal */}
       {showForm && <Form closeForm={closeForm} />}
-      
+
       {/* Demo Form Modal */}
       {showDemo && <Getdemo closeForm={closeDemo} />}
     </main>

@@ -20,6 +20,14 @@
   color: var(--text-dark);
 }
 
+/* ADDED: New class for the gradient text */
+.gradientText {
+  background: linear-gradient(269.86deg, #2c52be 11.04%, #ff822b 75.82%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* --- HERO SECTION STYLES --- */
 .heroGrid {
   display: grid;

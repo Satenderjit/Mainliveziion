@@ -3,6 +3,7 @@ import styles from "./Proposal.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
 
 const Proposal = () => {
   // 1. Updated state to match Form.js fields
@@ -15,6 +16,7 @@ const Proposal = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,7 +44,8 @@ const Proposal = () => {
         "j6fsWCbZRRU2n1J4A" // Your Public Key
       );
 
-      alert("Thank you for your request! We will be in touch shortly.");
+      // Navigate to ThankYou page with name parameter after successful submission
+      navigate("/thank-you", { state: { name: formData.name } });
 
       // Reset form after successful submission
       setFormData({
@@ -170,7 +173,8 @@ const Proposal = () => {
                   checked={formData.category === "Working Professional"}
                   onChange={handleChange}
                   required
-                />{" "}
+                />
+                <span className={styles.customRadio}></span>
                 Working Professional
               </label>
               <label>
@@ -180,7 +184,8 @@ const Proposal = () => {
                   value="College Student - Pursuing"
                   checked={formData.category === "College Student - Pursuing"}
                   onChange={handleChange}
-                />{" "}
+                />
+                <span className={styles.customRadio}></span>
                 College Student - Pursuing
               </label>
               <label>
@@ -190,7 +195,8 @@ const Proposal = () => {
                   value="College Student - Final Year"
                   checked={formData.category === "College Student - Final Year"}
                   onChange={handleChange}
-                />{" "}
+                />
+                <span className={styles.customRadio}></span>
                 College Student - Final Year
               </label>
               <label>
@@ -200,7 +206,8 @@ const Proposal = () => {
                   value="Others"
                   checked={formData.category === "Others"}
                   onChange={handleChange}
-                />{" "}
+                />
+                <span className={styles.customRadio}></span>
                 Others
               </label>
             </div>

@@ -31,46 +31,20 @@
   font-size: 14px;
 }
 
-
-
-
-/* Left vertical fixed button */
-.leftButtonContainer {
-  position: fixed;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  z-index: 999;
-  background: linear-gradient(to bottom, #3b82f6, #9333ea);
-  color: white;
-  padding: 12px 8px;
-  border-radius: 0 12px 12px 0;
-  cursor: pointer;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* White theme styles for specific pages */
+.leftButtonContainer.whiteTheme {
+  background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+  color: #333;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
 }
 
-.leftButtonIcon {
-  width: 18px;
-  height: 18px;
-  margin-bottom: 6px;
+.leftButtonText.whiteThemeText {
+  color: #333;
 }
 
-.leftButtonText {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 14px;
+.whiteThemeIcon {
+  stroke: #3b82f6 !important;
 }
-
-
-
-
-
 
 /* Popup Overlay */
 .popupOverlay {
@@ -84,6 +58,10 @@
   z-index: 10000;
   padding: 0 10px;
   box-sizing: border-box;
+}
+
+.whiteThemeOverlay {
+  background: transparent;
 }
 
 /* Popup Form Box */
@@ -100,6 +78,24 @@
   left: 0;              /* Stick to left */
   animation: slideInLeft 0.3s ease forwards;
   box-sizing: border-box;
+}
+
+.whiteThemeFormBox {
+  background: #ffffff;
+  color: #333;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.whiteThemeHeading {
+  color: #333;
+}
+
+.whiteThemeCloseBtn {
+  color: #333;
+}
+
+.whiteThemeCloseBtn:hover {
+  color: #000;
 }
 
 /* Slide-in animation from left */
@@ -151,6 +147,16 @@
   box-sizing: border-box;
 }
 
+.whiteThemeInput {
+  background-color: #f9f9f9 !important;
+  color: #333 !important;
+  border: 1px solid #ddd !important;
+}
+
+.whiteThemeInput::placeholder {
+  color: #999 !important;
+}
+
 /* Buttons side by side */
 .buttonRow {
   display: flex;
@@ -168,6 +174,16 @@
   cursor: pointer;
   font-weight: 500;
   transition: background-color 0.2s ease;
+}
+
+.whiteThemeSubmitBtn {
+  background-color: #007bff;
+  color: white;
+}
+
+.whiteThemeResetBtn {
+  background-color: #f0f0f0;
+  color: #333;
 }
 
 .popupSubmitBtn:hover:enabled {
