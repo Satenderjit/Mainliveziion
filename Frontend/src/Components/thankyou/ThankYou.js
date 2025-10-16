@@ -1,9 +1,13 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import styles from "./thankyou.module.css";
 import images from "../../assets/images";
 
 
-export default function ThankYou({ name = "" }) {
+export default function ThankYou() {
+  const location = useLocation();
+  const { name = "" } = location.state || {};
+
   return (
      <div className={styles.thankyouwrapper}>
          <section className={styles.thankyouContainer}>
