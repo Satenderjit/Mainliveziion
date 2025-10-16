@@ -1,67 +1,104 @@
-import React, { useState } from "react";
-import styles from "./LandingPage.module.css"; // Import the CSS module
-import GrowthStory from "../GrowthStory/GrowthStory";
-import ProjectShow from "../ProjectShow/ProjectShow";
-import TalkToExpert from "../TalkToExpert/Talktoexpert";
-import TieUpClg from "../TieUpClg/TieUpClg";
-import Form from "../../../form/Form"; // Import the Form component
-import Getdemo from "../../../form/Getdemo"; // Import the Getdemo component
-
+import React, { useState, useEffect, useRef } from "react";
+import styles from "./LandingPage.module.css";
+import Placements from "../../sixMonthTraining/Placements/Placements";
+import TieUpClg from "../../sixMonthTraining/TieUpClg/TieUpClg";
+import GrowthStory from "../../sixMonthTraining/GrowthStory/GrowthStory";
+import FAQ from "../../sixMonthTraining/FAQ/FAQ";
+import CompaniesTieUp from "../../sixMonthTraining/CompaniesTieUp/CompaniesTieUp";
+import Talktoexpert from "../../sixMonthTraining/TalkToExpert/Talktoexpert";
+import Propoasl from "../../sixWeekTraining/Proposal/Proposal";
+// IMPORT NEW ICONS for the cube and scroller
 import {
-  FaPython, FaJs, FaJava, FaCss3, FaHtml5, FaReact, FaNodeJs, FaAngular, FaVuejs,
-  FaBootstrap, FaSass, FaGit, FaDocker, FaAws, FaRust, FaPhp, FaSwift, FaAndroid,
-  FaApple, FaCode,
+  FaReact,
+  FaBrain, // Icon for AI
+  FaProjectDiagram, // Icon for ML
+  FaTools, // Icon for Web Dev Tools
+  FaBullhorn, // Icon for Digital Marketing
+  FaDatabase, // Icon for Data
+  FaJs,
+  FaPython,
 } from "react-icons/fa";
-import { DiMongodb, DiPostgresql, DiMysql, DiJqueryLogo } from "react-icons/di";
-import { SiTypescript, SiKotlin, SiGo, SiRuby, SiPerl, SiR, SiScala } from "react-icons/si";
-import CompaniesTieUp from "../CompaniesTieUp/CompaniesTieUp";
-import FAQ from "../FAQ/FAQ";
-import Placements from "../Placements/Placements";
-import Proposal from "../../sixWeekTraining/Proposal/Proposal";
+import ProjectShow from "../ProjectShow/ProjectShow";
+import Form from "../../../form/Form";
+import GetdemoComponent from "../../../form/Getdemo";
 import Courses from "../../sixWeekTraining/Courses/Courses";
 
+const Getdemo = GetdemoComponent;
+
+// NEW icon array with a focus on tech fields
 const techIcons = [
-  { name: "Python", icon: <FaPython size={64} color="#3776ab" /> },
+  { name: "React", icon: <FaReact size={64} color="#61DAFB" /> },
+  { name: "Artificial Intelligence", icon: <FaBrain size={64} color="#8A2BE2" /> },
+  { name: "Machine Learning", icon: <FaProjectDiagram size={64} color="#FF6347" /> },
+  { name: "Web Dev Tools", icon: <FaTools size={64} color="#708090" /> },
+  { name: "Digital Marketing", icon: <FaBullhorn size={64} color="#1E90FF" /> },
+  { name: "Data Science", icon: <FaDatabase size={64} color="#4682B4" /> },
+  // Keep some of the old ones for the scroller
   { name: "JavaScript", icon: <FaJs size={64} color="#f7df1e" /> },
-  { name: "Java", icon: <FaJava size={64} color="#ed8b00" /> },
-  // ... (rest of the icons array remains the same)
-  { name: "Ruby", icon: <SiRuby size={64} color="#CC342D" /> },
+  { name: "Python", icon: <FaPython size={64} color="#3776ab" /> },
 ];
+
+// The first 6 icons will be used for the cube faces
+const cubeIcons = techIcons.slice(0, 6);
 
 const LandingPage = () => {
   const [showForm, setShowForm] = useState(false);
   const [showDemo, setShowDemo] = useState(false);
 
-  const closeForm = () => {
-    setShowForm(false);
-  };
+  const heroVisualRef = useRef(null);
+  // Ref to hold the animation frame ID
+  const animationFrameId = useRef(null);
 
-  const closeDemo = () => {
-    setShowDemo(false);
-  };
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      // If there's a pending animation frame, cancel it.
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+      
+      // Schedule the style update to run on the next animation frame.
+      animationFrameId.current = requestAnimationFrame(() => {
+        if (heroVisualRef.current) {
+          const { clientX, clientY } = e;
+          const { innerWidth, innerHeight } = window;
+          const rotateX = (clientY / innerHeight - 0.5) * -20;
+          const rotateY = (clientX / innerWidth - 0.5) * 20;
+          heroVisualRef.current.style.setProperty("--mouse-rotate-x", `${rotateX}deg`);
+          heroVisualRef.current.style.setProperty("--mouse-rotate-y", `${rotateY}deg`);
+        }
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      // Also cancel any pending frame when the component unmounts
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+    };
+  }, []); // Empty dependency array means this effect runs only once.
+
+  const closeForm = () => setShowForm(false);
+  const closeDemo = () => setShowDemo(false);
 
   return (
     <main className={styles.container}>
       {/* --- Hero Section --- */}
       <section className={styles.heroGrid}>
         <article className={styles.heroText}>
-          <span className={styles.heroSubtitle}>
+          <span className={`${styles.heroSubtitle} ${styles.animateFadeIn}`}>
             Join Ziion technology for a transformative experience
           </span>
-          <h1>
-            Six Months  <span className={styles.gradientText}>
-                Industrial Training    
-            </span>   in Chandigarh
-           
+          <h1 className={styles.animateFadeIn}>
+            Six Months <span className={styles.gradientText}>Industrial Training</span> in Chandigarh
           </h1>
-          <p>
-            Ziion Technology is offering six-month industrial training at
-            Chandigarh for students of B.Tech , MCA, M.Sc (IT),
-            Diploma, and other graduate courses. During the training duration,
-            students are working on actual industry projects where hands-on
-            learning is promoted and technical skills are enhanced. 
+          <p className={styles.animateFadeIn}>
+Ziion Technology is offering six-month industrial training at Chandigarh for students of B.Tech , MCA, M.Sc (IT), Diploma, and other graduate courses. During the training duration, students are working on actual industry projects where hands-on learning is promoted and technical skills are enhanced.
           </p>
-          <div className={styles.buttonContainer}>
+          <div className={`${styles.buttonContainer} ${styles.animateFadeIn}`}>
             <button
               className={`${styles.ctaButton} ${styles.ctaButtonPrimary}`}
               onClick={() => setShowForm(true)}
@@ -77,20 +114,23 @@ const LandingPage = () => {
           </div>
         </article>
 
-        <div className={styles.heroImageContainer}>
-          <img
-            src="https://prod-strapi-website-media.s3.ap-south-1.amazonaws.com/animation_Home_194d1f8f8b.webp"
-            alt="Banner animation"
-            className={styles.heroImage}
-          />
+        {/* --- Cube Visual Element --- */}
+        <div ref={heroVisualRef} className={styles.heroImageContainer}>
+          <div className={styles.cube}>
+            <div className={`${styles.face} ${styles.front}`}>{cubeIcons[0]?.icon}</div>
+            <div className={`${styles.face} ${styles.back}`}>{cubeIcons[1]?.icon}</div>
+            <div className={`${styles.face} ${styles.right}`}>{cubeIcons[2]?.icon}</div>
+            <div className={`${styles.face} ${styles.left}`}>{cubeIcons[3]?.icon}</div>
+            <div className={`${styles.face} ${styles.top}`}>{cubeIcons[4]?.icon}</div>
+            <div className={`${styles.face} ${styles.bottom}`}>{cubeIcons[5]?.icon}</div>
+          </div>
         </div>
       </section>
 
-      {/* --- Tech Icons Section --- */}
+      {/* --- Other sections --- */}
       <section className={styles.partnersSection}>
         <h3>
-          Learn with the best{" "}
-          <span className={styles.highlight}>Technologies</span>
+          Learn with the best <span className={styles.highlight}>Technologies</span>
         </h3>
         <div className={styles.logoScroller}>
           <div className={styles.logoTrack}>
@@ -113,11 +153,11 @@ const LandingPage = () => {
       <Courses />
       <Placements />
       <TieUpClg />
-      <GrowthStory />
-      <FAQ />
+      <GrowthStory/>
+      <FAQ/>
       <CompaniesTieUp />
-      <TalkToExpert />
-      <Proposal />
+      <Talktoexpert/>
+      <Propoasl/>
       {showForm && <Form closeForm={closeForm} />}
       {showDemo && <Getdemo closeForm={closeDemo} />}
     </main>
