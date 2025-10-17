@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Courses.module.css";
 
 // SVG for the default icon next to domain names
@@ -93,9 +93,15 @@ const courseData = [
 
 const Courses = () => {
   const [openDomain, setOpenDomain] = useState(courseData[0]?.name || null);
+  const navigate = useNavigate();
 
   const toggleDomain = (domainName) => {
     setOpenDomain(openDomain === domainName ? null : domainName);
+  };
+
+  const handleExploreClick = () => {
+    // Navigate to the all courses page using React Router
+    navigate('/allcourses');
   };
 
   const activeDomain = courseData.find((domain) => domain.name === openDomain);
@@ -120,7 +126,7 @@ const Courses = () => {
             transforms knowledge into real-world achievements, building
             confidence and industry-ready skills.
           </p>
-          <Link to="/allcourses" className={styles.exploreButton}>Explore All Courses</Link>
+          <button onClick={handleExploreClick} className={styles.exploreButton}>Explore All Courses</button>
         </div>
 
         <div key={currentImageUrl} className={styles.imageCard}>
@@ -130,7 +136,7 @@ const Courses = () => {
             className={styles.cardImage}
           />
         </div>
-      </div>
+        </div>
 
       <div className={styles.rightSection}>
         <div className={styles.industryList}>

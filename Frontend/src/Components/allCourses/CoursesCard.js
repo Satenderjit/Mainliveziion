@@ -1,6 +1,6 @@
 // CoursesCard.jsx
 import React from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import styles from './coursesCard.module.css';
 import images from '../../assets/images';
 import NavBar from '../head/Navbar';
