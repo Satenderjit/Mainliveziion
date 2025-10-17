@@ -57,8 +57,10 @@ const GrowthStory = () => {
           <div className={styles.headerRight}>
             <p className={styles.headerDescription}>
               Ziion Technology enables every student to develop exceptional
-              skills in Six months industrial training in chandigarh and
-              guarantees 100% job assistance in the industry .{" "}
+              skills in six months industrial training in chandigarh and
+              guarantees 100% job assistance in the industry .Over the years,
+              training has been provided in best six months industrial training
+              in chandigarh more than 35,000 learners.{" "}
             </p>
           </div>
         </div>

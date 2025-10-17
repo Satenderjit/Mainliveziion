@@ -54,6 +54,7 @@
   max-width: 450px;
   margin-left: auto;
   line-height: 1.6;
+  text-align: justify;
 }
 
 .divider {
@@ -121,6 +122,7 @@
   max-width: 90%;
   position: relative;
   z-index: 2;
+  text-align: justify;
 }
 
 .globeCard {

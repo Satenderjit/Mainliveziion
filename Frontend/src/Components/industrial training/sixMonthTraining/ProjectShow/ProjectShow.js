@@ -4,70 +4,128 @@ import { useInView } from "react-intersection-observer";
 import Form from "../../../form/Getdemo"; // Import the form component
 
 // Make sure the path to your images is correct
-import financialImage from "../../../../assets/ProjectImages/Financial.jpg";
-import taskImage from "../../../../assets/ProjectImages/Task.jpg";
-import portfolioImage from "../../../../assets/ProjectImages/Portfolio.jpg";
-import ecomImage from "../../../../assets/ProjectImages/ecom.jpg";
+import AI_ML from "../../../../assets/ProjectImages/AI_ML.jpg";
+import googleadd from "../../../../assets/ProjectImages/googleadd.jpg";
+import datascience from "../../../../assets/ProjectImages/datascience.jpg";
+import mern from "../../../../assets/ProjectImages/mern.jpg";
 
 // --- ICONS ---
 const CartIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" > <circle cx="9" cy="21" r="1"></circle> <circle cx="20" cy="21" r="1"></circle> <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path> </svg>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    {" "}
+    <circle cx="9" cy="21" r="1"></circle>{" "}
+    <circle cx="20" cy="21" r="1"></circle>{" "}
+    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>{" "}
+  </svg>
 );
 const AdIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line></svg>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
+    <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+  </svg>
 );
 const BotIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8V4H8a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4v-4h-4a4 4 0 0 1-4-4z"></path><path d="M20 12h-4a4 4 0 0 1-4-4V4"></path></svg>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M12 8V4H8a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4v-4h-4a4 4 0 0 1-4-4z"></path>
+    <path d="M20 12h-4a4 4 0 0 1-4-4V4"></path>
+  </svg>
 );
 const DataIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"></path><path d="M18.7 8.3c-1.5-1-3.5-1.3-5.2-.6"></path><path d="M13.3 12.9c-1.5 1-3.5 1.3-5.2.6"></path><path d="M8 17.5c-1.5 1-3.5 1.3-5.2.6"></path></svg>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M3 3v18h18"></path>
+    <path d="M18.7 8.3c-1.5-1-3.5-1.3-5.2-.6"></path>
+    <path d="M13.3 12.9c-1.5 1-3.5 1.3-5.2.6"></path>
+    <path d="M8 17.5c-1.5 1-3.5 1.3-5.2.6"></path>
+  </svg>
 );
-
 
 // --- Project Data Array ---
 const projectsData = [
   {
     icon: <BotIcon />,
-    title: "AI Customer Support Chatbot",
-    description: "Build an AI-powered chatbot that can answer customer queries automatically using NLP (Natural Language Processing).",
-    techStack: "Python, C++, Java, JavaScript / Node.js",
+    title: "Chatbot",
+    description:
+      "Build an AI-powered chatbot that can answer customer queries automatically using NLP (Natural Language Processing).",
+    techStack: "Python",
     coreFeature: "Understands user queries & redirects to human agents.",
     buttonText: "Live Demo",
     buttonType: "demo",
-    imageUrl: taskImage,
+    imageUrl: AI_ML,
   },
   {
     icon: <AdIcon />,
-    title: "Google Ads Campaign Management",
-    description: "Create, manage, and optimize paid search and display campaigns for maximum ROI.",
+    title: "Google Ads",
+    description:
+      "Technologies: Google Analytics,Google Tag Manager, Google Data Studio (Looker Studio),Google Keyword Planner",
     techStack: "Google Analytics, Tag Manager, Data Studio, Keyword Planner",
     coreFeature: "Keyword targeting, bid management, and ad scheduling.",
     buttonText: "Live Demo",
     buttonType: "demo",
-    imageUrl: financialImage,
+    imageUrl: googleadd,
   },
   {
     icon: <DataIcon />,
-    title: "Data Science: Real-World Data Collection",
-    description: "Collected real-world datasets from sources such as Kaggle, company databases, and APIs for analysis.",
+    title: " Real-World Data Collection",
+    description:
+      "Collected real-world datasets from sources such as Kaggle, company databases, and APIs for analysis.",
     techStack: "Python (Pandas, NumPy), Excel",
     coreFeature: "Ensures data accuracy and consistency across all sources.",
     buttonText: "Live Demo",
     buttonType: "demo",
-    imageUrl: portfolioImage,
+    imageUrl: datascience,
   },
   {
     icon: <CartIcon />,
-    title: "Scalable E-commerce Platform",
-    description: "Engineered a responsive e-commerce solution with secure user authentication, dynamic product catalogs, and an integrated Stripe payment gateway.",
-    techStack: "MERN Stack (MongoDB, Express, React, Node.js)",
+    title: " E-commerce Platform",
+    description:
+      "Engineered a responsive e-commerce solution with secure user authentication, dynamic product catalogs, and an integrated stripe payment gateway for seamless transactions..",
+    techStack: "MERN Stack ",
     coreFeature: "Secure authentication and seamless transactions.",
     buttonText: "Live Demo",
     buttonType: "demo",
-    imageUrl: ecomImage,
+    imageUrl: mern,
   },
 ];
-
 
 // --- Animated Card Component ---
 const AnimatedProjectCard = ({ project, index, onDemoClick }) => {
@@ -114,6 +172,7 @@ const AnimatedProjectCard = ({ project, index, onDemoClick }) => {
             src={project.imageUrl}
             alt={`${project.title} UI`}
             className={styles.projectImage}
+            loading="lazy"
           />
         </div>
       </div>
@@ -143,12 +202,20 @@ const Projectshow = () => {
           <div className={styles.headerText}>
             <h1 className={styles.title}>
               Real Projects to Learn{" "}
-              <span className={styles.brandStories}> <br />Modern Tech</span>
+              <span className={styles.brandStories}>
+                {" "}
+                <br />
+                Modern Tech
+              </span>
             </h1>
           </div>
           <div className={styles.headerCta}>
             <p className={styles.ctaText}>
-            Live projects during Six-Month Industrial Training in Chandigarh offers students hands-on experience through live projects with a stipend. Participants gain real-world exposure in fields like Digital Marketing, Web Development, Full Stack, AI & ML, and Data Science, preparing them for professional success.
+              Live projects during Six-Month Industrial Training in Chandigarh
+              offers students hands-on experience through live projects with a
+              stipend. Participants gain real-world exposure in fields like
+              Digital Marketing, Web Development, Full Stack, AI & ML, and Data
+              Science, preparing them for professional success.
             </p>
             <button className={styles.caseStudiesButton}>View on GitHub</button>
           </div>
@@ -156,16 +223,18 @@ const Projectshow = () => {
 
         <main className={styles.mainContent}>
           {projectsData.map((project, index) => (
-            <AnimatedProjectCard 
-              key={index} 
-              project={project} 
-              index={index} 
+            <AnimatedProjectCard
+              key={index}
+              project={project}
+              index={index}
               onDemoClick={handleDemoClick}
             />
           ))}
         </main>
       </div>
-      {showDemoForm && <Form closeForm={closeDemoForm} project={selectedProject} />}
+      {showDemoForm && (
+        <Form closeForm={closeDemoForm} project={selectedProject} />
+      )}
     </div>
   );
 };
