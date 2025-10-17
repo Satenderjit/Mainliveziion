@@ -121,6 +121,7 @@
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-text-heading);
+  text-align: center; /* Keep center alignment for student names */
 }
 
 /* --- SECTION 2: Video Testimonials Marquee --- */

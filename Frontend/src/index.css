@@ -9,6 +9,11 @@ html, body {
    width: 100%;
 }
 
+/* Apply justify text alignment to text elements */
+p, span, li, td, th, caption {
+  text-align: justify;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
