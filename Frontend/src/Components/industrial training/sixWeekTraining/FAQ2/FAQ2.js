@@ -75,7 +75,7 @@ const rightColumnFaqs = [
   },
 ];
 
-const FAQ = () => {
+const FAQ2 = () => {
   // State to track the open accordion. `{ side, index }` identifies which one.
   const [openAccordion, setOpenAccordion] = useState(null);
 
@@ -168,4 +168,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default FAQ2;

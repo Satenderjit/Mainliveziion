@@ -44,7 +44,7 @@ const CountUp = ({ end, duration = 2000 }) => {
 };
 
 // --- The Main Component ---
-const GrowthStory = () => {
+const WhyChooseUs = () => {
   return (
     <section className={styles.wrapper}>
       <div className={styles.container}>
@@ -165,4 +165,4 @@ const GrowthStory = () => {
   );
 };
 
-export default GrowthStory;
+export default WhyChooseUs;

@@ -1,12 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./HeroSection.module.css";
-import Placements from "../../sixMonthTraining/Placements/Placements";
-import TieUpClg from "../../sixMonthTraining/TieUpClg/TieUpClg";
-import WhyChooseUs from "../../sixWeekTraining/WhyChooseUs/WhyChooseUS";
-import FAQ2 from "../../sixWeekTraining/FAQ2/FAQ2";
-import CompaniesTieUp from "../../sixMonthTraining/CompaniesTieUp/CompaniesTieUp";
-import Talktoexpert from "../../sixMonthTraining/TalkToExpert/Talktoexpert";
-import Propoasl from "../../sixWeekTraining/Proposal/Proposal";
+
 // IMPORT NEW ICONS for the cube and scroller
 import {
   FaReact,
@@ -18,10 +12,10 @@ import {
   FaJs,
   FaPython,
 } from "react-icons/fa";
-import ProjectShow from "../../sixMonthTraining/ProjectShow/ProjectShow"
+
 import Form from "../../../form/Form";
 import GetdemoComponent from "../../../form/Getdemo";
-import Courses from "../../sixWeekTraining/Courses/Courses";
+
 
 const Getdemo = GetdemoComponent;
 
@@ -149,14 +143,7 @@ Ziion Technology is offering six-weeks industrial training at Chandigarh for stu
           </div>
         </div>
       </section>
-      <ProjectShow />
-      <Courses />
-      <Placements />
-      <TieUpClg />
-      <WhyChooseUs/>
-      <FAQ2/>
-      <CompaniesTieUp />
-      <Talktoexpert/>
+     
       {showForm && <Form closeForm={closeForm} />}
       {showDemo && <Getdemo closeForm={closeDemo} />}
     </main>

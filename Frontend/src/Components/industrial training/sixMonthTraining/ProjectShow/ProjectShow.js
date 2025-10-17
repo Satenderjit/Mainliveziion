@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./ProjectShow.module.css";
 import { useInView } from "react-intersection-observer";
 import Form from "../../../form/Getdemo"; // Import the form component
@@ -13,81 +13,74 @@ import ecomImage from "../../../../assets/ProjectImages/ecom.jpg";
 const CartIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" > <circle cx="9" cy="21" r="1"></circle> <circle cx="20" cy="21" r="1"></circle> <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path> </svg>
 );
-const BudgetIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" > <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path> <path d="M22 12A10 10 0 0 0 12 2v10z"></path> </svg>
+const AdIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line></svg>
 );
-const KanbanIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" > <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect> <line x1="9" y1="3" x2="9" y2="21"></line> <line x1="15" y1="3" x2="15" y2="21"></line> </svg>
+const BotIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8V4H8a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4v-4h-4a4 4 0 0 1-4-4z"></path><path d="M20 12h-4a4 4 0 0 1-4-4V4"></path></svg>
 );
-const PortfolioIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" > <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path> <circle cx="12" cy="7" r="4"></circle> </svg>
+const DataIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"></path><path d="M18.7 8.3c-1.5-1-3.5-1.3-5.2-.6"></path><path d="M13.3 12.9c-1.5 1-3.5 1.3-5.2.6"></path><path d="M8 17.5c-1.5 1-3.5 1.3-5.2.6"></path></svg>
 );
+
 
 // --- Project Data Array ---
 const projectsData = [
   {
-    icon: <CartIcon />,
-    title: "Scalable E-commerce Platform",
-    description: "Engineered a responsive e-commerce solution with secure user authentication, dynamic product catalogs, and an integrated Stripe payment gateway for seamless transactions.",
-    techStack: "MERN Stack",
-    coreFeature: "Payment Gateway",
+    icon: <BotIcon />,
+    title: "AI Customer Support Chatbot",
+    description: "Build an AI-powered chatbot that can answer customer queries automatically using NLP (Natural Language Processing).",
+    techStack: "Python, C++, Java, JavaScript / Node.js",
+    coreFeature: "Understands user queries & redirects to human agents.",
     buttonText: "Live Demo",
-    buttonType: "demo", // Added button type
-    imageUrl: ecomImage,
-  },
-  {
-    icon: <BudgetIcon />,
-    title: "Financial Analytics Dashboard",
-    description: "Developed a personal finance application to monitor income and expenses, featuring interactive data visualization through Chart.js for insightful financial analysis.",
-    techStack: "React & Chart.js",
-    coreFeature: "Data Visualization",
-    buttonText: "Live Demo",
-    buttonType: "demo", // Added button type
-    imageUrl: financialImage,
-  },
-  {
-    icon: <KanbanIcon />,
-    title: "Collaborative Task Manager",
-    description: "Built a Kanban-style project management tool enabling real-time collaboration. Implemented a drag-and-drop interface for intuitive task workflow management.",
-    techStack: "React & Node.js",
-    coreFeature: "Drag & Drop UI",
-    buttonText: "Live Demo",
-    buttonType: "demo", // Added button type
+    buttonType: "demo",
     imageUrl: taskImage,
   },
   {
-    icon: <PortfolioIcon />,
-    title: "Responsive Personal Portfolio",
-    description: "Designed and deployed a modern, single-page portfolio application with a focus on clean UI/UX, responsive design, and performance optimization.",
-    techStack: "React & CSS Modules",
-    coreFeature: "Responsive Design",
-    buttonText: "View Source",
-    buttonType: "source", // Added button type
+    icon: <AdIcon />,
+    title: "Google Ads Campaign Management",
+    description: "Create, manage, and optimize paid search and display campaigns for maximum ROI.",
+    techStack: "Google Analytics, Tag Manager, Data Studio, Keyword Planner",
+    coreFeature: "Keyword targeting, bid management, and ad scheduling.",
+    buttonText: "Live Demo",
+    buttonType: "demo",
+    imageUrl: financialImage,
+  },
+  {
+    icon: <DataIcon />,
+    title: "Data Science: Real-World Data Collection",
+    description: "Collected real-world datasets from sources such as Kaggle, company databases, and APIs for analysis.",
+    techStack: "Python (Pandas, NumPy), Excel",
+    coreFeature: "Ensures data accuracy and consistency across all sources.",
+    buttonText: "Live Demo",
+    buttonType: "demo",
     imageUrl: portfolioImage,
   },
+  {
+    icon: <CartIcon />,
+    title: "Scalable E-commerce Platform",
+    description: "Engineered a responsive e-commerce solution with secure user authentication, dynamic product catalogs, and an integrated Stripe payment gateway.",
+    techStack: "MERN Stack (MongoDB, Express, React, Node.js)",
+    coreFeature: "Secure authentication and seamless transactions.",
+    buttonText: "Live Demo",
+    buttonType: "demo",
+    imageUrl: ecomImage,
+  },
 ];
+
 
 // --- Animated Card Component ---
 const AnimatedProjectCard = ({ project, index, onDemoClick }) => {
   const { ref, inView } = useInView({
     threshold: 0.1,
-    // triggerOnce has been removed to allow continuous animations
   });
 
   const handleClick = () => {
     if (project.buttonType === "demo") {
       onDemoClick(project); // Open form for demo buttons
     } else if (project.buttonType === "source") {
-      // Open GitHub repository for source buttons
-      if (project.title === "Responsive Personal Portfolio") {
-        window.open("https://github.com/ziion-technology/personal-portfolio", "_blank");
-      } else if (project.title === "Scalable E-commerce Platform") {
-        window.open("https://github.com/ziion-technology/ecommerce-platform", "_blank");
-      } else if (project.title === "Financial Analytics Dashboard") {
-        window.open("https://github.com/ziion-technology/financial-dashboard", "_blank");
-      } else if (project.title === "Collaborative Task Manager") {
-        window.open("https://github.com/ziion-technology/task-manager", "_blank");
-      }
+      // In a real app, you would have different links for each project
+      window.open("https://github.com/ziion-technology", "_blank");
     }
   };
 
@@ -105,11 +98,11 @@ const AnimatedProjectCard = ({ project, index, onDemoClick }) => {
         <p className={styles.infoDescription}>{project.description}</p>
         <div className={styles.metric}>
           <span className={styles.metricValue}>{project.techStack}</span>
-          <span className={styles.metricLabel}>Tech Stack</span>
+          <span className={styles.metricLabel}>Technologies</span>
         </div>
         <div className={styles.metric}>
           <span className={styles.metricValue}>{project.coreFeature}</span>
-          <span className={styles.metricLabel}>Core Feature</span>
+          <span className={styles.metricLabel}>Key Features</span>
         </div>
         <button className={styles.viewCaseStudyButton} onClick={handleClick}>
           {project.buttonText}
@@ -149,15 +142,13 @@ const Projectshow = () => {
         <header className={styles.header}>
           <div className={styles.headerText}>
             <h1 className={styles.title}>
-              Featured{" "}
-              <span className={styles.brandStories}>Full-Stack Projects</span>
+              Real Projects to Learn{" "}
+              <span className={styles.brandStories}> <br />Modern Tech</span>
             </h1>
           </div>
           <div className={styles.headerCta}>
             <p className={styles.ctaText}>
-              A curated collection of applications demonstrating proficiency in
-              front-end and back-end development, API integration, and database
-              management.
+            Live projects during Six-Month Industrial Training in Chandigarh offers students hands-on experience through live projects with a stipend. Participants gain real-world exposure in fields like Digital Marketing, Web Development, Full Stack, AI & ML, and Data Science, preparing them for professional success.
             </p>
             <button className={styles.caseStudiesButton}>View on GitHub</button>
           </div>
@@ -174,7 +165,7 @@ const Projectshow = () => {
           ))}
         </main>
       </div>
-      {showDemoForm && <Form closeForm={closeDemoForm} />}
+      {showDemoForm && <Form closeForm={closeDemoForm} project={selectedProject} />}
     </div>
   );
 };
